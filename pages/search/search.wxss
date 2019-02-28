@@ -1,4 +1,6 @@
 @import '/utils/weui.wxss';
+@import '/utils/common.wxss';
+
 page{
     background: #fff;
 }

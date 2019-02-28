@@ -1,0 +1,8 @@
+@import '/utils/weui.wxss';
+@import '/utils/common.wxss';
+@import '/utils/wxParse/wxParse.wxss';
+
+.detail_head{
+  background-color: #2AB9A2;
+  color: white;
+}

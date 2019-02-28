@@ -1,32 +1,44 @@
 <view class="weui-search-bar">
-    <view class="weui-search-bar__form">
-        <view class="weui-search-bar__box">
-            <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-            <input type="text" class="weui-search-bar__input" placeholder="搜索" placeholder-class="plac" bindinput="searchInput"  bindconfirm='search'/>
-        </view>
+  <view class="weui-search-bar__form">
+    <view class="weui-search-bar__box">
+      <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+      <input type="text" class="weui-search-bar__input" placeholder="搜索" focus='true' placeholder-class="plac" bindinput="searchInputing" bindconfirm='searchInput' />
     </view>
-    <view class='weui-search-bar__cancel-btn'>取消</view>
-    <view class="weui-search-bar__cancel-btn" bindtap="search">搜索</view>
+  </view>
+  <view class='weui-search-bar__cancel-btn' bindtap='returnHome'>取消</view>
 </view>
 <view class="search-list {{is_hidden?'hidden':''}}">
-    <block wx:for="{{search_list}}" wx:key="{{item.id}}">
-        <text class="search-item" bindtap="showItemDetail" data-header="{{item.header}}">{{item.header}}</text>
-    </block>
+  <block wx:for="{{search_list}}" wx:key="{{item.id}}">
+    <text class="search-item" bindtap="showItemDetail" data-header="{{item.header}}">{{item.header}}</text>
+  </block>
 </view>
-<template is="goods_list" data="{{goods_list}}"></template>
-<view wx:if="{{goods_list==''}}">
-    <view class="search-tages">
-        <navigator>
-            <text>红米Note5</text>
-        </navigator>
-        <navigator>
-            <text>小米MIX2</text>
-        </navigator>
-        <navigator>
-            <text>小米MIX2S</text>
-        </navigator>
-        <navigator>
-            <text>小米笔记本Pro</text>
-        </navigator>
-    </view>
+<view class="page__bd">
+  <view class="kind-list">
+    <block wx:for="{{list}}" wx:key="id">
+      <view class="kind-list__item">
+        <view id="{{item.id}}" class="weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
+          <image wx:if="{{item.img_uuid}}" class="circle" src="{{item.img_uuid}}"></image>
+          <image wx:else="{{item.img_uuid == ''}}" class='circle' src='/images/default.png'></image>
+          <view>
+            <view class='weui-flex'>
+              <view class="weui-flex__item company_name">
+                <text>{{item.company_name}}</text>
+              </view>
+            </view>
+            <view class='weui-flex'>
+              <image class='icon' src='/images/school.png'></image>
+              <text class='weui-flex__item additional_info'>{{item.school_name}}</text>
+              <image class='icon' src='/images/time.png'></image>
+              <text class='weui-flex__item additional_info'>{{item.begin_time}}</text>
+            </view>
+            <view class='weui-flex'>
+              <image class='icon' src='/images/location.png'></image>
+              <text class='weui-flex__item additional_info'>{{item.place}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class='page__ft'>已经到底了</view>
 </view>

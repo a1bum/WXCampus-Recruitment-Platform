@@ -3,7 +3,7 @@
   <view class="section searchBar">
     <view class="section searBar-box {{isTap?'tap':''}}">
       <image src="/images/search.png" mode="aspectFill" class="search-icon" />
-      <input type="text" name="searchBar" disabled="true" placeholder="搜索" placeholder-class="search-place" bindtap="toSearch" />
+      <input class='searchInput' type="text" name="searchBar" disabled="true" placeholder="搜索" placeholder-class="search-place" bindtap="toSearch" />
     </view>
   </view>
 </view>
@@ -11,7 +11,7 @@
   <view class="kind-list">
     <block wx:for="{{list}}" wx:key="id">
       <view class="kind-list__item">
-        <view id="{{item.id}}" class="weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
+        <navigator url="/pages/detail/detail?uuid={{item.uuid}}" class="weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}">
           <image wx:if="{{item.img_uuid}}" class="circle" src="{{item.img_uuid}}"></image>
           <image wx:else="{{item.img_uuid == ''}}" class='circle' src='/images/default.png'></image>
           <view>
@@ -29,7 +29,7 @@
               <text class='weui-flex__item additional_info'>{{item.place}}</text>
             </view>
           </view>
-        </view>
+        </navigator>
       </view>
     </block>
   </view>

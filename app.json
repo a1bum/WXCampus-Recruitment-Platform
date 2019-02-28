@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/calendar/calendar",
     "pages/account/account",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/detail/detail"
   ],
   "window": {
     "navigationBarBackgroundColor": "#2AB9A2",

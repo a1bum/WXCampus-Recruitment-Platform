@@ -2,9 +2,14 @@
 
 ### 2018-02-28
 
-1. 解决“调用接口后有些没有校徽图片”问题（[使用默认图片](https://blog.csdn.net/YanzYan/article/details/54573007)）
-2. 解决“公司名字过长导致的校徽变形或者不显示”问题（[设置宽度多余用省略号代替](https://blog.csdn.net/YanzYan/article/details/54573007)）
-3. 添加首页下拉刷新时完成后进行**wx.showToast**提示（[微信小程序官方文档-wx.showToast](https://developers.weixin.qq.com/miniprogram/dev/api/wx.showToast.html)）
+1. 修复“调用接口后有些没有校徽图片”（[使用默认图片](https://blog.csdn.net/YanzYan/article/details/54573007)）
+2. 修复“公司名字过长导致的校徽变形或者不显示”（[设置宽度多余用省略号代替](https://blog.csdn.net/YanzYan/article/details/54573007)）
+3. 添加首页下拉刷新时完成后进行**wx.showToast**提示（[微信小程序官方文档-wx.showToast](https://developers.weixin.qq.com/miniprogram/dev/api/wx.showToast.html)） 
+4. 修复“点击多次搜索，第二次以及之后获取input框值为undefined”
+5. 修复“没有输入值的情况下，调用接口却出现数据”
+6. 修复“因输入框高度不够造成的搜索体验不佳”
+7. 添加“校招信息详情”界面，并调用接口进行解析
+8. 优化渲染条件，加快渲染速度
 
 ### 2018-02-27
 
@@ -18,8 +23,9 @@
 ### 2018-02-26
 
 1. 实现“界面底部tab切换”功能（[仿网易云音乐APP的微信小程序]()）
-2. 实现“校招日历界面的日历”功能，并可以根据点击日期不同进行热度推荐
-3. 优化首页组件布局（[weui cells](https://github.com/Tencent/weui/wiki/Cell)）
+2. 实现“个人中心”显示微信头像功能
+3. 实现“校招日历界面的日历”功能，并可以根据点击日期不同进行热度推荐
+4. 优化首页组件布局（[weui cells](https://github.com/Tencent/weui/wiki/Cell)）
 
 ## 图片来源
 

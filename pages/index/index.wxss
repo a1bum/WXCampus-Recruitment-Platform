@@ -1,9 +1,10 @@
 @import '/utils/weui.wxss';
 @import '/utils/common.wxss';
 
-.section{
-  width: 100%;
+.searchInput{
+  height: 60rpx;
 }
+
 .searchBar{
   display: flex;
   justify-content: center;

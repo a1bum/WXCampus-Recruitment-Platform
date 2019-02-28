@@ -3,6 +3,7 @@ Page({
     inputShowed: false,
     inputVal: ""
   },
+  // onLoad函数
   onLoad: function (options){
     this.visitInterface()
   },
@@ -13,18 +14,17 @@ Page({
   // 访问接口获取数据
   visitInterface:function(){
     var vm = this;
-    var page = Math.ceil(Math.random() * 13);
+    var page = Math.ceil(Math.random() * 15);
     wx.showToast({
       title: 'loading',
       icon: 'loading'
-    })
+    });
     wx.request({
       url: 'https://xiaoyuan.shixiseng.com/wx/xj/criteria?pageSize=15&p=' +page ,
       headers: {
         'Context-Type': 'application/json'
       },
       success: function (res) {
-        console.log('请求主页接口信息成功');
         vm.setData({
           list: res.data.data,
         });

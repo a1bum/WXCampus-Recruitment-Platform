@@ -1,0 +1,28 @@
+<view class="kind-list">
+  <view class="kind-list__item">
+    <view class="weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}} detail_head">
+      <image wx:if="{{detail.img_uuid}}" class="circle" src="{{detail.img_uuid}}"></image>
+      <image wx:else="{{detail.img_uuid == ''}}" class='circle' src='/images/default.png'></image>
+      <view>
+        <view class='weui-flex'>
+          <view class="weui-flex__item company_name">
+            <text>{{detail.company_name}}</text>
+          </view>
+        </view>
+        <view class='weui-flex'>
+          <image class='icon' src='/images/school_detail.png'></image>
+          <text class='weui-flex__item additional_info'>{{detail.school_name}}</text>
+          <image class='icon' src='/images/time_detail.png'></image>
+          <text class='weui-flex__item additional_info'>{{detail.begin_datetime}}</text>
+        </view>
+        <view class='weui-flex'>
+          <image class='icon' src='/images/location_detail.png'></image>
+          <text class='weui-flex__item additional_info'>{{detail.place}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='body_text'>
+  {{detail.preach_context}}
+</view>

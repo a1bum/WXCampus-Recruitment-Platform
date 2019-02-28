@@ -34,20 +34,19 @@
       <block wx:for="{{list}}" wx:key="id">
         <view class="kind-list__item">
           <view id="{{item.id}}" class="weui-flex kind-list__item-hd" bindtap="viewDetails">
-            <image class="circle" src="{{item.img_uuid}}"></image>
-            <view>
+            <image wx:if="{{item.img_uuid}}" class="circle" src="{{item.img_uuid}}"></image>
+            <image wx:else="{{item.img_uuid == ''}}" class='circle' src='/images/default.png'></image>
               <view class='weui-flex'>
-                <view class="weui-flex__item">{{item.company_name}}</view>
+                <view class="weui-flex__item company_name">{{item.company_name}}</view>
               </view>
               <view class='weui-flex'>
                 <image class='icon' src='/images/school.png'></image>
-                <view class='weui-flex__item'>{{item.school_name}}</view>
+                <view class='weui-flex__item additional_info'>{{item.school_name}}</view>
               </view>
               <view class='weui-flex'>
                 <image class='icon' src='/images/time.png'></image>
-                <view class='weui-flex__item'>{{item.begin_time}}</view>
+                <view class='weui-flex__item additional_info'>{{item.begin_time}}</view>
               </view>
-            </view>
           </view>
         </view>
       </block>
