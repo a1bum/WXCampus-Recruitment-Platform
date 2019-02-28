@@ -1,3 +1,5 @@
+## 更新日志
+
 ### 2018-02-28
 
 1. 解决“调用接口后有些没有校徽图片”问题（[使用默认图片](https://blog.csdn.net/YanzYan/article/details/54573007)）
@@ -18,3 +20,16 @@
 1. 实现“界面底部tab切换”功能（[仿网易云音乐APP的微信小程序]()）
 2. 实现“校招日历界面的日历”功能，并可以根据点击日期不同进行热度推荐
 3. 优化首页组件布局（[weui cells](https://github.com/Tencent/weui/wiki/Cell)）
+
+## 图片来源
+
+[1]: https://img.icons8.com/ios/80/000000/home-page.png	"白色主页图标"
+[2]: https://img.icons8.com/ios/80/000000/home-page-filled.png	"黑色主页图标"
+[3]: https://img.icons8.com/ios/50/000000/today.png	"白色日历图标"
+[4]: https://img.icons8.com/ios/50/000000/today-filled.png	"黑色日历图标"
+[5]: https://img.icons8.com/ios/50/000000/contacts.png	"白色个人中心图标"
+[6]: https://img.icons8.com/ios/50/000000/user-filled.png	"黑色个人中心图标"
+[7]: https://img.icons8.com/ios/50/000000/back-filled.png	"左箭头图标"
+[8]: https://img.icons8.com/ios/50/000000/forward-filled.png	"右箭头图标"
+[9]: https://img.icons8.com/ios/50/000000/graduation-cap.png	"毕业帽图标"
+[10]: https://img.icons8.com/ios/50/000000/alarm-on.png	"闹钟图标"
