@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/calendar/calendar",
+    "pages/account/account",
+    "pages/search/search"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#2AB9A2",
+    "navigationBarTitleText": "简招",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#aaa",
+    "selectedColor": "#000",
+    "borderStyle": "white",
+    "backgroundColor": "#f0f0f0",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/home_tab.png",
+        "selectedIconPath": "images/home_selected.png",
+        "text": "主页"
+      },
+      {
+        "pagePath": "pages/calendar/calendar",
+        "iconPath": "images/calendar_tab.png",
+        "selectedIconPath": "images/calendar_selected.png",
+        "text": "校招日历"
+      },
+      {
+        "pagePath": "pages/account/account",
+        "iconPath": "images/account_tab.png",
+        "selectedIconPath": "images/account_selected.png",
+        "text": "我的"
+      }
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+<view class='calendar'>
+  <!-- 日历导航栏部分 -->
+  <view class='calendar_navigator'>
+    <view class="selected_month">
+      <view bindtap="preMonth">
+        <image class="select_icon" src="/images/back.png"></image>
+      </view>
+      <view class="text_center">{{curYear+'-'+curMonth}}</view>
+      <view style="text-align:right;" bindtap="nextMonth">
+        <image class="select_icon" src="/images/forward.png"></image>
+      </view>
+    </view>
+    <!-- 日历部分 -->
+    <view class="calendar_panel">
+      <view class="calendar_box">
+        <view class="weekday_label weekday">日</view>
+        <view class="weekday_label weekday">一</view>
+        <view class="weekday_label weekday">二</view>
+        <view class="weekday_label weekday">三</view>
+        <view class="weekday_label weekday">四</view>
+        <view class="weekday_label weekday">五</view>
+        <view class="weekday_label weekday">六</view>
+      </view>
+      <view class="calendar_box" wx:for="{{dateList}}" wx:for-item="week" wx:key="{{dateList.weekIndex}}">
+        <view class="weekday_label" wx:for="{{week}}" wx:key="{{item.date}}">
+          <text class="{{item.value==curDate?'active_date':''}} {{item.value==selectedDate?'selected_date':''}}" bindtap="curHot" data-date="{{item}}">{{item.date}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 指定日期校招信息部分 -->
+  <view class="page__bd">
+    <view class="kind-list">
+      <block wx:for="{{list}}" wx:key="id">
+        <view class="kind-list__item">
+          <view id="{{item.id}}" class="weui-flex kind-list__item-hd" bindtap="viewDetails">
+            <image class="circle" src="{{item.img_uuid}}"></image>
+            <view>
+              <view class='weui-flex'>
+                <view class="weui-flex__item">{{item.company_name}}</view>
+              </view>
+              <view class='weui-flex'>
+                <image class='icon' src='/images/school.png'></image>
+                <view class='weui-flex__item'>{{item.school_name}}</view>
+              </view>
+              <view class='weui-flex'>
+                <image class='icon' src='/images/time.png'></image>
+                <view class='weui-flex__item'>{{item.begin_time}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

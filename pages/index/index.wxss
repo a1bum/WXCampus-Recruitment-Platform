@@ -1,0 +1,36 @@
+@import '/utils/weui.wxss';
+@import '/utils/common.wxss';
+
+.section{
+  width: 100%;
+}
+.searchBar{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100rpx;
+  background: #2AB9A2;
+}
+.searchBar .searBar-box{
+  display: inline-block;
+  width: 95%;
+  height: 60rpx;
+  margin-top: 26rpx;
+  border-radius: 40rpx;
+  background: #fff;
+}
+.searBar-box.tap{
+  background: rgba(255,247,231,.9);
+}
+.search-place{
+  text-align: center;
+  font-size: 11pt;
+  margin-top: 4rpx;
+}
+.searBar-box .search-icon{
+  position: absolute;
+  left: 36%;
+  top: 35rpx;
+  width: 44rpx;
+  height: 44rpx;
+}
