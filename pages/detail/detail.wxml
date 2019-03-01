@@ -1,12 +1,18 @@
+<import src='/utils/wxParse/wxParse.wxml' />
 <view class="kind-list">
   <view class="kind-list__item">
     <view class="weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}} detail_head">
       <image wx:if="{{detail.img_uuid}}" class="circle" src="{{detail.img_uuid}}"></image>
-      <image wx:else="{{detail.img_uuid == ''}}" class='circle' src='/images/default.png'></image>
+      <image wx:else="{{detail.img_uuid == ''}}" class='circle' src='/images/default_detail.png'></image>
       <view>
         <view class='weui-flex'>
           <view class="weui-flex__item company_name">
             <text>{{detail.company_name}}</text>
+          </view>
+        </view>
+        <view class='weui-flex'>
+          <view class="weui-flex__item">
+            <text>来源：{{detail.org_name}}</text>
           </view>
         </view>
         <view class='weui-flex'>
@@ -23,6 +29,6 @@
     </view>
   </view>
 </view>
-<view class='body_text'>
-  {{detail.preach_context}}
+<view class='rich-text-wrp'>
+  <rich-text nodes="{{detail.preach_context}}"></rich-text>
 </view>

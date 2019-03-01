@@ -16,14 +16,12 @@
   <view class="kind-list">
     <block wx:for="{{list}}" wx:key="id">
       <view class="kind-list__item">
-        <view id="{{item.id}}" class="weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
+        <navigator url="/pages/detail/detail?uuid={{item.uuid}}" class="weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}">
           <image wx:if="{{item.img_uuid}}" class="circle" src="{{item.img_uuid}}"></image>
           <image wx:else="{{item.img_uuid == ''}}" class='circle' src='/images/default.png'></image>
           <view>
             <view class='weui-flex'>
-              <view class="weui-flex__item company_name">
-                <text>{{item.company_name}}</text>
-              </view>
+              <view class="weui-flex__item company_name"><text>{{item.company_name}}</text></view>
             </view>
             <view class='weui-flex'>
               <image class='icon' src='/images/school.png'></image>
@@ -36,7 +34,7 @@
               <text class='weui-flex__item additional_info'>{{item.place}}</text>
             </view>
           </view>
-        </view>
+        </navigator>
       </view>
     </block>
   </view>

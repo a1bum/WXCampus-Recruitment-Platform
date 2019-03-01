@@ -1,8 +1,21 @@
 /* 信息部分样式 */
 
+.detail_right{
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.item_left,.item_right{
+  flex-flow: column;
+}
+
+.item_box{
+  display: flex;
+}
+
 /* 设置公司名字特别长时省略号代替 */
 .company_name{
-  width: 274px;
+  font-size: 30rpx;
   font-weight: bold;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -20,8 +33,8 @@
 }
 
 .circle {
-  width: 50px;
-  height: 50px;
+  width: 80rpx;
+  height:80rpx;
   border: 0 solid #fff;
   border-radius: 500px;
 }

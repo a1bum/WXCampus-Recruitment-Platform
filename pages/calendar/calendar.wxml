@@ -32,24 +32,33 @@
   <view class="page__bd">
     <view class="kind-list">
       <block wx:for="{{list}}" wx:key="id">
-        <view class="kind-list__item">
-          <view id="{{item.id}}" class="weui-flex kind-list__item-hd" bindtap="viewDetails">
+        <navigator url='/pages/detail/detail?uuid={{item.uuid}}' class="kind-list__item item_box">
+          <view class="weui-flex kind-list__item-hd item_left" bindtap="viewDetails">
             <image wx:if="{{item.img_uuid}}" class="circle" src="{{item.img_uuid}}"></image>
             <image wx:else="{{item.img_uuid == ''}}" class='circle' src='/images/default.png'></image>
-              <view class='weui-flex'>
-                <view class="weui-flex__item company_name">{{item.company_name}}</view>
-              </view>
-              <view class='weui-flex'>
-                <image class='icon' src='/images/school.png'></image>
-                <view class='weui-flex__item additional_info'>{{item.school_name}}</view>
-              </view>
-              <view class='weui-flex'>
-                <image class='icon' src='/images/time.png'></image>
-                <view class='weui-flex__item additional_info'>{{item.begin_time}}</view>
-              </view>
           </view>
-        </view>
+          <view class='item_right detail_right'>
+            <view class='weui-flex'>
+              <text decode='{{true}}' class="weui-flex__item company_name">&nbsp;{{item.company_name}}</text>
+            </view>
+            <view class='weui-flex item_box'>
+              <view class='weui-flex__item item_left'>
+                <image class='icon' src='/images/school.png'></image>
+                <text decode='{{true}}' class='additional_info'>&nbsp;{{item.school_name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>
+              </view>
+              <view class='item_right'>
+                <image class='icon' src='/images/time.png'></image>
+                <text decode='{{true}}' class='additional_info'>&nbsp;{{item.begin_time}}</text>
+              </view>
+            </view>
+            <view class='weui-flex'>
+              <image class='icon' src='/images/location.png'></image>
+              <text decode='{{true}}' class='weui-flex__item additional_info'>&nbsp;{{item.place}}</text>
+            </view>
+          </view>
+        </navigator>
       </block>
     </view>
   </view>
+  <view class='page__ft'>已经到底了</view>
 </view>

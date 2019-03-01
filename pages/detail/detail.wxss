@@ -1,8 +1,14 @@
 @import '/utils/weui.wxss';
 @import '/utils/common.wxss';
-@import '/utils/wxParse/wxParse.wxss';
 
-.detail_head{
-  background-color: #2AB9A2;
+.rich-text-wrp{
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  width: auto;
+  overflow-x: auto;
+}
+
+.detail_head {
+  background-color: #2ab9a2;
   color: white;
 }
