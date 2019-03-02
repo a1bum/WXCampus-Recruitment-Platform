@@ -20,11 +20,11 @@ Page({
     // 页面渲染完成
   },
   onShow: function () {
-    var today = new Date();//当前时间  
-    var y = today.getFullYear();//年  
-    var mon = today.getMonth() + 1;//月  
-    var d = today.getDate();//日  
-    var i = today.getDay();//星期  
+    let today = new Date();//当前时间  
+    let y = today.getFullYear();//年  
+    let mon = today.getMonth() + 1;//月  
+    let d = today.getDate();//日  
+    let i = today.getDay();//星期  
     this.setData({
       curYear: y,
       curMonth: mon,
@@ -33,13 +33,13 @@ Page({
     });
     this.getDateList(y, mon - 1);
     // 加载今天热门校招信息
-    var selectedDate = this.data.curDate;
+    let selectedDate = this.data.curDate;
     this.visitInterface(selectedDate);
   },
   getDateList: function (y, mon) {
-    var vm = this;
+    let vm = this;
     //如果是否闰年，则2月是29日
-    var daysCountArr = this.data.daysCountArr;
+    let daysCountArr = this.data.daysCountArr;
     if (y % 4 == 0 && y % 100 != 0) {
       this.data.daysCountArr[1] = 29;
       this.setData({
@@ -47,12 +47,12 @@ Page({
       });
     }
     //第几个月；下标从0开始实际月份还要再+1  
-    var dateList = [];
+    let dateList = [];
     // console.log('本月', vm.data.daysCountArr[mon], '天');
     dateList[0] = [];
-    var weekIndex = 0;//第几个星期
-    for (var i = 0; i < vm.data.daysCountArr[mon]; i++) {
-      var week = new Date(y, mon, (i + 1)).getDay();
+    let weekIndex = 0;//第几个星期
+    for (let i = 0; i < vm.data.daysCountArr[mon]; i++) {
+      let week = new Date(y, mon, (i + 1)).getDay();
       // 如果是新的一周，则新增一周
       if (week == 0) {
         weekIndex++;
@@ -79,8 +79,8 @@ Page({
     });
   },
   curHot: function (e) {
-    var vm = this;
-    var selectedDate = e.currentTarget.dataset.date.value;
+    let vm = this;
+    let selectedDate = e.currentTarget.dataset.date.value;
     //console.log('选中', e.currentTarget.dataset.date.value);
     vm.setData({
       selectedDate: selectedDate,
@@ -91,9 +91,9 @@ Page({
   },
   preMonth: function () {
     // 上个月
-    var vm = this;
-    var curYear = vm.data.curYear;
-    var curMonth = vm.data.curMonth;
+    let vm = this;
+    let curYear = vm.data.curYear;
+    let curMonth = vm.data.curMonth;
     curYear = curMonth - 1 ? curYear : curYear - 1;
     curMonth = curMonth - 1 ? curMonth - 1 : 12;
     // console.log('上个月', curYear, curMonth);
@@ -106,9 +106,9 @@ Page({
   },
   nextMonth: function () {
     // 下个月
-    var vm = this;
-    var curYear = vm.data.curYear;
-    var curMonth = vm.data.curMonth;
+    let vm = this;
+    let curYear = vm.data.curYear;
+    let curMonth = vm.data.curMonth;
     curYear = curMonth + 1 == 13 ? curYear + 1 : curYear;
     curMonth = curMonth + 1 == 13 ? 1 : curMonth + 1;
     // console.log('下个月', curYear, curMonth);
@@ -120,7 +120,7 @@ Page({
   },
   // 访问接口函数
   visitInterface: function (selectedDate) {
-    var vm = this;
+    let vm = this;
     wx.request({
       url: 'https://xiaoyuan.shixiseng.com/wx/xj/criteria?order=hot&d=' + selectedDate + '&p=1',
       headers: {
@@ -136,7 +136,7 @@ Page({
   },
   // 监听校招信息点击事件，进入详情查看页
   viewDetails: function(){
-    var vm = this;
+    let vm = this;
     
   }
 })

@@ -13,8 +13,8 @@ Page({
   },
   // 访问接口获取数据
   visitInterface:function(){
-    var vm = this;
-    var page = Math.ceil(Math.random() * 15);
+    let vm = this;
+    let page = Math.ceil(Math.random() * 15);
     wx.showToast({
       title: 'loading',
       icon: 'loading'
@@ -25,13 +25,14 @@ Page({
         'Context-Type': 'application/json'
       },
       success: function (res) {
+        let title = res.data.data.length != 0? '加载成功':'火星了，下拉刷新';
         vm.setData({
           list: res.data.data,
         });
         wx.showToast({
-          title: '加载成功',
-          icon: 'success'
-        });
+          title: title,
+          icon: 'none',
+        })
       },
       fail:function(){
         wx.showNavigationBarLoading();

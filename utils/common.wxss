@@ -1,5 +1,9 @@
 /* 信息部分样式 */
 
+.source{
+  font-size: 30rpx;
+}
+
 .detail_right{
   margin-top: 20rpx;
   margin-bottom: 20rpx;
@@ -23,6 +27,9 @@
 }
 
 .additional_info {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   width: 250rpx;
   font-size: 25rpx;
 }

@@ -7,11 +7,24 @@
   </view>
   <view class='weui-search-bar__cancel-btn' bindtap='returnHome'>取消</view>
 </view>
+<view class="search-history" wx:if="{{status}}">
+  <view class="search-history-title">
+    <text>历史搜索</text>
+    <image src="/images/delete.png" bindtap="clearHistory" />
+  </view>
+  <view class="search-history-detail">
+    <view class="history-deatil" wx:for="{{history}}" wx:key="{{item}}" bindtap="historySearch" data-index="{{index}}">
+      <text class="detail">{{item}}</text>
+    </view>
+  </view>
+</view>
+<!-- 搜索历史记录显示区域 -->
 <view class="search-list {{is_hidden?'hidden':''}}">
   <block wx:for="{{search_list}}" wx:key="{{item.id}}">
     <text class="search-item" bindtap="showItemDetail" data-header="{{item.header}}">{{item.header}}</text>
   </block>
 </view>
+<!-- 搜索结果显示区域 -->
 <view class="page__bd">
   <view class="kind-list">
     <block wx:for="{{list}}" wx:key="id">
