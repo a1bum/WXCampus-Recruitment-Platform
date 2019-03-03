@@ -2,11 +2,12 @@
   <view class="weui-search-bar__form">
     <view class="weui-search-bar__box">
       <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-      <input type="text" class="weui-search-bar__input" placeholder="搜索" focus='true' placeholder-class="plac" bindinput="searchInputing" bindconfirm='searchInput' />
+      <input type="text" class="weui-search-bar__input" placeholder="搜索" focus='true' placeholder-class="plac" bindfocus='onFocus' bindblur='leaveFocus' bindconfirm='searchInput' />
     </view>
   </view>
   <view class='weui-search-bar__cancel-btn' bindtap='returnHome'>取消</view>
 </view>
+<!-- 搜索历史记录显示区域 -->
 <view class="search-history" wx:if="{{status}}">
   <view class="search-history-title">
     <text>历史搜索</text>
@@ -14,42 +15,40 @@
   </view>
   <view class="search-history-detail">
     <view class="history-deatil" wx:for="{{history}}" wx:key="{{item}}" bindtap="historySearch" data-index="{{index}}">
-      <text class="detail">{{item}}</text>
+      <text class="detail" data-text="{{item}}">{{item}}</text>
     </view>
   </view>
-</view>
-<!-- 搜索历史记录显示区域 -->
-<view class="search-list {{is_hidden?'hidden':''}}">
-  <block wx:for="{{search_list}}" wx:key="{{item.id}}">
-    <text class="search-item" bindtap="showItemDetail" data-header="{{item.header}}">{{item.header}}</text>
-  </block>
 </view>
 <!-- 搜索结果显示区域 -->
 <view class="page__bd">
   <view class="kind-list">
     <block wx:for="{{list}}" wx:key="id">
-      <view class="kind-list__item">
-        <navigator url="/pages/detail/detail?uuid={{item.uuid}}" class="weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}">
+      <navigator url='/pages/detail/detail?uuid={{item.uuid}}' class="kind-list__item item_box">
+        <view class="weui-flex kind-list__item-hd item_left" bindtap="viewDetails">
           <image wx:if="{{item.img_uuid}}" class="circle" src="{{item.img_uuid}}"></image>
           <image wx:else="{{item.img_uuid == ''}}" class='circle' src='/images/default.png'></image>
-          <view>
-            <view class='weui-flex'>
-              <view class="weui-flex__item company_name"><text>{{item.company_name}}</text></view>
-            </view>
-            <view class='weui-flex'>
+        </view>
+        <view class='item_right detail_right'>
+          <view class='weui-flex'>
+            <text decode='{{true}}' class="weui-flex__item company_name">&nbsp;{{item.company_name}}</text>
+          </view>
+          <view class='weui-flex item_box'>
+            <view class='weui-flex__item item_left'>
               <image class='icon' src='/images/school.png'></image>
-              <text class='weui-flex__item additional_info'>{{item.school_name}}</text>
-              <image class='icon' src='/images/time.png'></image>
-              <text class='weui-flex__item additional_info'>{{item.begin_time}}</text>
+              <text decode='{{true}}' class='additional_info'>&nbsp;{{item.school_name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>
             </view>
-            <view class='weui-flex'>
-              <image class='icon' src='/images/location.png'></image>
-              <text class='weui-flex__item additional_info'>{{item.place}}</text>
+            <view class='item_right'>
+              <image class='icon' src='/images/time.png'></image>
+              <text decode='{{true}}' class='additional_info'>&nbsp;{{item.begin_time}}</text>
             </view>
           </view>
-        </navigator>
-      </view>
+          <view class='weui-flex'>
+            <image class='icon' src='/images/location.png'></image>
+            <text decode='{{true}}' class='weui-flex__item additional_info'>&nbsp;{{item.place}}</text>
+          </view>
+        </view>
+      </navigator>
     </block>
   </view>
-  <view class='page__ft'>已经到底了</view>
 </view>
+<view class='page__ft'>已经到底了</view>

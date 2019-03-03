@@ -30,7 +30,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  width: 250rpx;
   font-size: 25rpx;
 }
 

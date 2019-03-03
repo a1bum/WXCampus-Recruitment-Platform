@@ -1,7 +1,5 @@
 @import '/utils/common.wxss';
 /* 日历部分样式 */
-
-
 .selected_date {
   background: #f7f307;
   color: #000;
@@ -9,6 +7,7 @@
 }
 
 .text_center {
+  width: 33.3%;
   text-align: center;
 }
 

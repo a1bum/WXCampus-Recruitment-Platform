@@ -5,7 +5,9 @@
       <view bindtap="preMonth">
         <image class="select_icon" src="/images/back.png"></image>
       </view>
-      <view class="text_center">{{curYear+'-'+curMonth}}</view>
+        <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+          <view class="text_center" >{{curYear+'-'+curMonth}}</view>
+        </picker>
       <view style="text-align:right;" bindtap="nextMonth">
         <image class="select_icon" src="/images/forward.png"></image>
       </view>

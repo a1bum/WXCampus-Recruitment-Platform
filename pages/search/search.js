@@ -1,25 +1,45 @@
 Page({
+  data:{
+    status: false,
+    history: []
+  },
   // 搜索历史记录
-  historySearch: function(e){
-    
+  historySearch:function(e){
+    let keyword = e.target.dataset.text;
+    let vm = this;
+    vm.isEmpty(keyword);
   },
-
-  // 实时搜索
-  searchInputing:function(){
-    
+  // 清楚历史搜索记录
+  clearHistory: function(){
+    let vm = this;
+    wx.clearStorageSync(history);
+    vm.setData({
+      status: false,
+    })
   },
-
   // 点击取消返回主页
   returnHome: function(){
     wx.navigateBack();
   },
-  
+  // 失去焦点时隐藏搜索历史记录
+  leaveFocus:function(){
+    this.setData({
+      status: false,
+    });
+  },
+  // 获得焦点时显示搜索历史记录
+  onFocus:function(){
+    this.setData({
+      list: [],
+      status: true,
+    });
+  },
+  // 执行搜索
   searchInput: function(e){
     let vm = this;
     let keyword = e.detail.value;
     vm.isEmpty(keyword);
   },
-
   // 检测是否非空
   isEmpty: function(keyword){
     let vm = this;
@@ -34,16 +54,27 @@ Page({
       vm.data.history.unshift(keyword);
       wx.setStorage({
         key: "history",
-        data: vm.data.history,
+        data: vm.distinct(vm.data.history),
         success: function(res){
           vm.setData({
-            history: vm.data.history,
-            status: true
-          })
+            history: vm.distinct(vm.data.history),
+          });
         },
       })
     }
   },
+  // 数组去重
+  distinct:function(arr){
+    let result = []
+    let obj = {}
+    for (let i of arr) {
+        if (!obj[i]) {
+            result.push(i)
+            obj[i] = 1
+        }
+    }
+    return result
+},
 
   // 搜素事件
   search: function (keyword) {
@@ -58,6 +89,7 @@ Page({
         'Context-Type': 'application/json'
       },
       success: function (res) {
+        console.log('https://xiaoyuan.shixiseng.com/wx/xj/criteria?k=' + keyword);
         wx.hideLoading();
         vm.setData({
           keyword: keyword,

@@ -1,58 +1,52 @@
 @import '/utils/weui.wxss';
 @import '/utils/common.wxss';
 
-page{
-    background: #fff;
-}
-.weui-search-bar{
-    background: #2AB9A2;
-}
-.weui-search-bar__cancel-btn{
-    color: #fff;
-    font-size: 12pt;
+/* 搜索历史部分 */
+
+.search-history-title {
+  padding-top: 30rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  /* background-color: #d9d9d9; *//* margin-top: 5rpx; */
+  display: flex;
+  justify-content: space-between;
 }
 
-.search-tages{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
-.search-tages text{
-    display: inline-block;
-    height: 50rpx;
-    line-height: 50rpx;
-    font-size: 10pt;
-    padding: 0 10rpx;
-    margin: 30rpx 0 0 10rpx;
-    background: #fff;
-    border: 1rpx solid #d6d6d6;
+.search-history-title>text {
+  font-size: 10pt;
 }
 
-/*搜索下拉框*/
-.search-list{
-    width: 100%;
-    /* height: 50vh; */
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    z-index: 2;
-    background: #fff;
-    border-bottom: 1rpx solid #eee;
+.search-history-title>image {
+  width: 40rpx;
+  height: 40rpx;
 }
-.search-list .search-item{
-    display: inline-block;
-    width: 100%;
-    height: 80rpx;
-    line-height: 80rpx;
-    padding: 8rpx 30rpx;
-    border-bottom: 1rpx solid #eee;
-    font-size: 10pt;
+
+.search-history-detail>view {
+  display: inline-block;
 }
-.search-list .search-item:last-child{
-    border-bottom: none;
+
+.history-detail,.detail {
+  margin-bottom: 50rpx;
+  margin-top: 50rpx;
+  margin-left: 30rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  padding-right: 20rpx;
+  padding-left: 20rpx;
+  border-radius: 50rpx;
+  background-color: #fff;
+  color: #000;
+  font-size: 9pt;
+  text-align: center;
 }
-.search-list.hidden{
-    display: none;
+
+/* 信息部分 */
+
+.weui-search-bar {
+  background: #2ab9a2;
+}
+
+.weui-search-bar__cancel-btn {
+  color: #fff;
+  font-size: 12pt;
 }
