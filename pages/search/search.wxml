@@ -14,7 +14,7 @@
     <image src="/images/delete.png" bindtap="clearHistory" />
   </view>
   <view class="search-history-detail">
-    <view class="history-deatil" wx:for="{{history}}" wx:key="{{item}}" bindtap="historySearch" data-index="{{index}}">
+    <view class="history-detail" wx:for="{{history}}" wx:key="{{item}}" bindtap="historySearch" data-index="{{index}}">
       <text class="detail" data-text="{{item}}">{{item}}</text>
     </view>
   </view>

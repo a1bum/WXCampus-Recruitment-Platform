@@ -6,7 +6,6 @@
   padding-top: 30rpx;
   padding-left: 30rpx;
   padding-right: 30rpx;
-  /* background-color: #d9d9d9; *//* margin-top: 5rpx; */
   display: flex;
   justify-content: space-between;
 }
@@ -24,10 +23,12 @@
   display: inline-block;
 }
 
-.history-detail,.detail {
-  margin-bottom: 50rpx;
-  margin-top: 50rpx;
-  margin-left: 30rpx;
+.history-detail{
+    margin-top: 20rpx;
+    margin-left: 30rpx;
+}
+
+.detail {
   padding-top: 10rpx;
   padding-bottom: 10rpx;
   padding-right: 20rpx;
