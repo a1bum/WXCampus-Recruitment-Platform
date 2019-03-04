@@ -23,6 +23,10 @@ WXCampisRecuitmentPlatform/
 
 ## 更新日志
 
+### 2019-03-05（实现ing）
+
+1. 添加“意见反馈 feedback 页面”
+
 ### 2019-03-04
 
 1. 修复“更换 view 为 picker 后布局变化”
@@ -31,6 +35,7 @@ WXCampisRecuitmentPlatform/
 4. 修复“调用 getDateList 函数时日历为空”（[JavaScript parseInt() 函数](http://www.w3school.com.cn/js/jsref_parseInt.asp)）
 5. 修复“闰年条件不规范”
 6. 提升“搜索历史”体验（[微信小程序官方文档--wx.getStorageSync(string key)](https://developers.weixin.qq.com/miniprogram/dev/api/wx.getStorageSync.html)）
+7. 修复“搜索历史块背景色与页面背景色一致”（[CSS border 属性](http://www.w3school.com.cn/cssref/pr_border.asp)）
 
 ### 2019-03-03
 

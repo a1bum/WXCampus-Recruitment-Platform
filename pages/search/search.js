@@ -3,9 +3,6 @@ Page({
     status: true,
     history: wx.getStorageSync("history"),
   },
-  onLoad:function(options){
-   
-  },
   // 搜索历史记录
   historySearch: function(e) {
     let keyword = e.target.dataset.text;
@@ -29,6 +26,7 @@ Page({
   // 获得焦点时显示搜索历史记录
   onFocus: function() {
     this.setData({
+      history: wx.getStorageSync("history"),
       list: [],
       status: true,
     });

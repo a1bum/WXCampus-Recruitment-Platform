@@ -2,7 +2,6 @@
 @import '/utils/common.wxss';
 
 /* 搜索历史部分 */
-
 .search-history-title {
   padding-top: 30rpx;
   padding-left: 30rpx;
@@ -34,6 +33,9 @@
   padding-right: 20rpx;
   padding-left: 20rpx;
   border-radius: 50rpx;
+  border-color:#2ab9a2;
+  border-style: solid;
+  border-width: thin;
   background-color: #fff;
   color: #000;
   font-size: 9pt;
