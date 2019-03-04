@@ -7,18 +7,14 @@
 }
 
 .text_center {
-  width: 33.3%;
   text-align: center;
 }
 
 .selected_month {
+  background-color: white;
+  margin-bottom: 20rpx;
   padding: 20rpx;
   overflow: hidden;
-}
-
-.selected_month>view {
-  width: 33.3%;
-  float: left;
 }
 
 .calendar_panel {

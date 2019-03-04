@@ -2,15 +2,9 @@
   <!-- 日历导航栏部分 -->
   <view class='calendar_navigator'>
     <view class="selected_month">
-      <view bindtap="preMonth">
-        <image class="select_icon" src="/images/back.png"></image>
-      </view>
-        <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
-          <view class="text_center" >{{curYear+'-'+curMonth}}</view>
+        <picker mode="date" value="{{date}}" fields="month" start="2018-09-01" end="2019-09-01" bindchange="bindDateChange">
+          <view class="text_center" >{{curYear+'年'+curMonth+'月'}}</view>
         </picker>
-      <view style="text-align:right;" bindtap="nextMonth">
-        <image class="select_icon" src="/images/forward.png"></image>
-      </view>
     </view>
     <!-- 日历部分 -->
     <view class="calendar_panel">

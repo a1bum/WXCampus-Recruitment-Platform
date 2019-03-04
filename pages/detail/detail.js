@@ -21,7 +21,8 @@ Page({
             detail: res.data.data,
           });
           wx.showToast({
-            title: '表格可滑动',
+            title: title,
+            icon: "none",
           });
         }
       },

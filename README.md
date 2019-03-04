@@ -23,14 +23,20 @@ WXCampisRecuitmentPlatform/
 
 ## 更新日志
 
-### 2019-03-03（实现ing）
+### 2019-03-04
+
+1. 修复“更换 view 为 picker 后布局变化”
+2. 删除“preMonth 和 nextMonth 的 view 组件”
+3. 添加“日期更改时日历跟随变化”
+4. 修复“调用 getDateList 函数时日历为空”（[JavaScript parseInt() 函数](http://www.w3school.com.cn/js/jsref_parseInt.asp)）
+5. 修复“闰年条件不规范”
+
+### 2019-03-03
 
 1. 添加“搜索历史”功能（[拉勾小程序](https://github.com/zengkaii/wxapp)）
-2. 添加“实时搜索”功能
+2. 修复“搜索历史重复”（[JavaScript 高性能数组去重](https://www.cnblogs.com/wisewrong/p/9642264.html)）
 3. 调整“校招日历”界面月份为可自行设定
-4. 修复“搜索历史重复”（[JavaScript 高性能数组去重](https://www.cnblogs.com/wisewrong/p/9642264.html)）
-5. 修复“更换 view 为 picker 后布局变化”
-6. 删除部分无用 wxss 样式
+4. 删除部分无用 wxss 样式
 
 ### 2019-03-02
 

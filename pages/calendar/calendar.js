@@ -4,7 +4,7 @@ Page({
     curDate: '',//选中的几月几号
     curWeek: '',//选中的星期几
     curYear: 2019,//当前年份
-    curMonth: 2,//当前月份
+    curMonth: 3,//当前月份
     daysCountArr: [// 保存各个月份的长度，平年
       31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
     ],
@@ -26,6 +26,7 @@ Page({
     let d = today.getDate();//日  
     let i = today.getDay();//星期  
     this.setData({
+      date: y + '-' + mon,
       curYear: y,
       curMonth: mon,
       curDate: y + '-' + mon + '-' + d,
@@ -37,18 +38,17 @@ Page({
     this.visitInterface(selectedDate);
   },
   getDateList: function (y, mon) {
+    y = parseInt(y);
+    mon = parseInt(mon);
     let vm = this;
     //如果是否闰年，则2月是29日
     let daysCountArr = this.data.daysCountArr;
-    if (y % 4 == 0 && y % 100 != 0) {
-      this.data.daysCountArr[1] = 29;
-      this.setData({
+    this.data.daysCountArr[1] = (y % 4 == 0 && y % 100 != 0 || y % 400 == 0 ? 29:28);
+    this.setData({
         daysCountArr: daysCountArr
       });
-    }
     //第几个月；下标从0开始实际月份还要再+1  
     let dateList = [];
-    // console.log('本月', vm.data.daysCountArr[mon], '天');
     dateList[0] = [];
     let weekIndex = 0;//第几个星期
     for (let i = 0; i < vm.data.daysCountArr[mon]; i++) {
@@ -73,7 +73,6 @@ Page({
         });
       }
     }
-    // console.log('本月日期', dateList);
     vm.setData({
       dateList: dateList
     });
@@ -89,35 +88,6 @@ Page({
     // 根据被选中的日期调用接口动态改变日历下面的推荐信息
     vm.visitInterface(selectedDate);
   },
-  preMonth: function () {
-    // 上个月
-    let vm = this;
-    let curYear = vm.data.curYear;
-    let curMonth = vm.data.curMonth;
-    curYear = curMonth - 1 ? curYear : curYear - 1;
-    curMonth = curMonth - 1 ? curMonth - 1 : 12;
-    // console.log('上个月', curYear, curMonth);
-    vm.setData({
-      curYear: curYear,
-      curMonth: curMonth
-    });
-
-    vm.getDateList(curYear, curMonth - 1);
-  },
-  nextMonth: function () {
-    // 下个月
-    let vm = this;
-    let curYear = vm.data.curYear;
-    let curMonth = vm.data.curMonth;
-    curYear = curMonth + 1 == 13 ? curYear + 1 : curYear;
-    curMonth = curMonth + 1 == 13 ? 1 : curMonth + 1;
-    // console.log('下个月', curYear, curMonth);
-    vm.setData({
-      curYear: curYear,
-      curMonth: curMonth
-    });
-    vm.getDateList(curYear, curMonth - 1);
-  },
   // 访问接口函数
   visitInterface: function (selectedDate) {
     let vm = this;
@@ -127,16 +97,20 @@ Page({
         "Context-Type": "application/json"
       },
       success: function (res) {
-        console.log('请求指定日期的接口信息成功')
         vm.setData({
           list: res.data.data
         })
       }
     })
   },
-  // 监听校招信息点击事件，进入详情查看页
-  viewDetails: function(){
+  // 日期改变函数
+  bindDateChange:function(e){
     let vm = this;
-    
-  }
+    let date = e.detail.value.split('-'); 
+    this.setData({
+      curYear: date[0],
+      curMonth: date[1],
+    });
+    vm.getDateList(date[0], parseInt(date[1])-1);
+  },
 })
