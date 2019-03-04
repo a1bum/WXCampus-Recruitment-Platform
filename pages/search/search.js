@@ -1,47 +1,46 @@
 Page({
-  data:{
-    status: false,
-    history: []
+  data: {
+    status: true,
+    history: wx.getStorageSync("history"),
+  },
+  onLoad:function(options){
+   
   },
   // 搜索历史记录
-  historySearch:function(e){
+  historySearch: function(e) {
     let keyword = e.target.dataset.text;
     let vm = this;
     vm.isEmpty(keyword);
   },
   // 清楚历史搜索记录
-  clearHistory: function(){
-    let vm = this;
-    wx.clearStorageSync(history);
-    vm.setData({
-      status: false,
-    })
+  clearHistory: function() {
+    wx.clearStorageSync("history");
   },
   // 点击取消返回主页
-  returnHome: function(){
+  returnHome: function() {
     wx.navigateBack();
   },
   // 失去焦点时隐藏搜索历史记录
-  leaveFocus:function(){
+  leaveFocus: function() {
     this.setData({
       status: false,
     });
   },
   // 获得焦点时显示搜索历史记录
-  onFocus:function(){
+  onFocus: function() {
     this.setData({
       list: [],
       status: true,
     });
   },
   // 执行搜索
-  searchInput: function(e){
+  searchInput: function(e) {
     let vm = this;
     let keyword = e.detail.value;
     vm.isEmpty(keyword);
   },
   // 检测是否非空
-  isEmpty: function(keyword){
+  isEmpty: function(keyword) {
     let vm = this;
     if (keyword == '') {
       wx.showToast({
@@ -55,7 +54,7 @@ Page({
       wx.setStorage({
         key: "history",
         data: vm.distinct(vm.data.history),
-        success: function(res){
+        success: function(res) {
           vm.setData({
             history: vm.distinct(vm.data.history),
           });
@@ -64,20 +63,20 @@ Page({
     }
   },
   // 数组去重
-  distinct:function(arr){
+  distinct: function(arr) {
     let result = []
     let obj = {}
     for (let i of arr) {
-        if (!obj[i]) {
-            result.push(i)
-            obj[i] = 1
-        }
+      if (!obj[i]) {
+        result.push(i)
+        obj[i] = 1
+      }
     }
     return result
-},
+  },
 
   // 搜素事件
-  search: function (keyword) {
+  search: function(keyword) {
     let vm = this;
     wx.showLoading({
       title: '请稍等',
@@ -88,8 +87,7 @@ Page({
       headers: {
         'Context-Type': 'application/json'
       },
-      success: function (res) {
-        console.log('https://xiaoyuan.shixiseng.com/wx/xj/criteria?k=' + keyword);
+      success: function(res) {
         wx.hideLoading();
         vm.setData({
           keyword: keyword,
@@ -98,11 +96,11 @@ Page({
       }
     });
   },
- 
+
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })
