@@ -23,9 +23,11 @@ WXCampisRecuitmentPlatform/
 
 ## 更新日志
 
-### 2019-03-05（实现ing）
+### 2019-03-05
 
-1. 添加“意见反馈 feedback 页面”
+1. 实现“意见反馈”（[微信官方文档--button设置open-type为feedback](https://developers.weixin.qq.com/miniprogram/dev/component/button.html)）
+2. 修复“日期点击 selectedDate 函数”
+3. 修复“calendar 页面组件布局不协调”
 
 ### 2019-03-04
 
@@ -95,3 +97,5 @@ WXCampisRecuitmentPlatform/
 [8]: https://img.icons8.com/ios/50/000000/forward-filled.png	"右箭头图标"
 [9]: https://img.icons8.com/ios/50/000000/graduation-cap.png	"毕业帽图标"
 [10]: https://img.icons8.com/ios/50/000000/alarm-on.png	"闹钟图标"
+[11]: http://www.shejiye.com/index.php?m=content&amp;c=index&amp;a=show&amp;catid=22&amp;id=124908	"下箭头图标 "
+

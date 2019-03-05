@@ -35,11 +35,11 @@
           <view class='weui-flex item_box'>
             <view class='weui-flex__item item_left'>
               <image class='icon' src='/images/school.png'></image>
-              <text decode='{{true}}' class='additional_info'>&nbsp;{{item.school_name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>
+              <text decode='{{true}}' class='weui-flex__item additional_info'>&nbsp;{{item.school_name}}&nbsp;&nbsp;</text>
             </view>
             <view class='item_right'>
               <image class='icon' src='/images/time.png'></image>
-              <text decode='{{true}}' class='additional_info'>&nbsp;{{item.begin_time}}</text>
+              <text decode='{{true}}' class='weui-flex__item additional_info'>&nbsp;{{item.begin_time}}</text>
             </view>
           </view>
           <view class='weui-flex'>

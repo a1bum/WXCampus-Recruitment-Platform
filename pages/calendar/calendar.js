@@ -19,7 +19,7 @@ Page({
   onReady: function () {
     // 页面渲染完成
   },
-  onShow: function () {
+  onLoad: function () {
     let today = new Date();//当前时间  
     let y = today.getFullYear();//年  
     let mon = today.getMonth() + 1;//月  
@@ -30,7 +30,7 @@ Page({
       curYear: y,
       curMonth: mon,
       curDate: y + '-' + mon + '-' + d,
-      curWeek: this.data.weekArr[i]
+      curWeek: this.data.weekArr[i],
     });
     this.getDateList(y, mon - 1);
     // 加载今天热门校招信息

@@ -1,6 +1,13 @@
 /*导入weui.wxss */
 @import '/utils/weui.wxss';
 
+.feedback{
+  margin: 10rpx;
+  border-style: none;
+  text-align: left;
+  font-size: 35rpx
+}
+
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -17,8 +24,4 @@
 
 .userinfo-nickname {
   color: #FFF;
-}
-
-.usermotto {
-  margin-top: 200px;
 }

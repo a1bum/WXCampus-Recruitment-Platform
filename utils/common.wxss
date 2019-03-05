@@ -19,6 +19,7 @@
 
 /* 设置公司名字特别长时省略号代替 */
 .company_name{
+  width: 200rpx;
   font-size: 30rpx;
   font-weight: bold;
   overflow: hidden;
@@ -27,6 +28,7 @@
 }
 
 .additional_info {
+  width: 250rpx;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

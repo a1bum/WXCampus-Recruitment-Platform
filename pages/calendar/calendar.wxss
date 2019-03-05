@@ -1,5 +1,13 @@
 @import '/utils/common.wxss';
 /* 日历部分样式 */
+.downIcon{
+  position: absolute;
+  left: 62%;
+  top: 25rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+
 .selected_date {
   background: #f7f307;
   color: #000;
