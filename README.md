@@ -28,6 +28,7 @@ WXCampisRecuitmentPlatform/
 1. 实现“意见反馈”（[微信官方文档--button设置open-type为feedback](https://developers.weixin.qq.com/miniprogram/dev/component/button.html)）
 2. 修复“日期点击 selectedDate 函数”
 3. 修复“calendar 页面组件布局不协调”
+4. 修复“搜索历史删除后历史记录失效”
 
 ### 2019-03-04
 

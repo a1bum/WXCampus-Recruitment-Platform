@@ -14,7 +14,7 @@ Page({
   // 访问接口获取数据
   visitInterface:function(){
     let vm = this;
-    let page = Math.ceil(Math.random() * 15);
+    let page = Math.ceil(Math.random() * 10);
     wx.showToast({
       title: 'loading',
       icon: 'loading'

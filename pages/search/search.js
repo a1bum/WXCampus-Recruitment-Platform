@@ -1,7 +1,7 @@
 Page({
   data: {
     status: true,
-    history: wx.getStorageSync("history"),
+    history: ["北京", "上海", "广州"],
   },
   // 搜索历史记录
   historySearch: function(e) {
@@ -12,6 +12,9 @@ Page({
   // 清楚历史搜索记录
   clearHistory: function() {
     wx.clearStorageSync("history");
+    this.setData({
+      history: [],
+    })
   },
   // 点击取消返回主页
   returnHome: function() {
@@ -25,8 +28,9 @@ Page({
   },
   // 获得焦点时显示搜索历史记录
   onFocus: function() {
-    this.setData({
-      history: wx.getStorageSync("history"),
+    let vm = this;
+    vm.setData({
+      history: vm.distinct(vm.data.history),
       list: [],
       status: true,
     });
@@ -57,7 +61,13 @@ Page({
             history: vm.distinct(vm.data.history),
           });
         },
-      })
+        fail: function(res) {
+          console.log("fail" + res);
+        },
+        complete: function(res) {
+          console.log("complete" + res)
+        },
+      });
     }
   },
   // 数组去重
