@@ -23,6 +23,15 @@ WXCampisRecuitmentPlatform/
 
 ## 更新日志
 
+### 2019-03-06
+
+- 完善前端查询功能
+- 着手构思后端，涉及数据库设计，java项目构建
+  - 目标在一周之内添加“可以发布校招信息的功能”
+  - 将前端解析接口全部由后台解析并存入数据库
+  - 多个接口去重选优后增强查询和发布校招信息体验
+  - 必要时可以自己写爬虫，设置定时计划抓取第三方或官方校招信息，存入数据库
+
 ### 2019-03-05
 
 1. 实现“意见反馈”（[微信官方文档--button设置open-type为feedback](https://developers.weixin.qq.com/miniprogram/dev/component/button.html)）
