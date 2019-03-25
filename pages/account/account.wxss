@@ -1,7 +1,7 @@
 /*导入weui.wxss */
 @import '/utils/weui.wxss';
 
-.feedback{
+.official_feedback,.github_feedback,.publish_info{
   margin: 10rpx;
   border-style: none;
   text-align: left;

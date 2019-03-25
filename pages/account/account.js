@@ -8,12 +8,6 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  //事件处理函数
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({
@@ -48,6 +42,20 @@ Page({
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
+    })
+  },
+  // 跳转到github提交issue
+  toGithubIssue:function(e){
+    console.log(e)
+    wx.navigateTo({
+      url: '/pages/github/github',
+    })
+  },
+  // 跳转到 发布信息页面
+  toPublish:function(e){
+    console.log(e)
+    wx.navigateTo({
+      url: '/pages/publish/publish',
     })
   }
 })

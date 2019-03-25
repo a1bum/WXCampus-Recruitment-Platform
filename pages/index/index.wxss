@@ -25,7 +25,7 @@
 }
 .search-place{
   text-align: center;
-  font-size: 11pt;
+  font-size: 30rpx;
   margin-top: 4rpx;
 }
 .searBar-box .search-icon{

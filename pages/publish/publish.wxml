@@ -1,0 +1,35 @@
+<view class="title">信息发布</view>
+<view>
+    <view class='item'>
+        <label>公司名称：</label>
+        <input type="text" placeholder="请输入公司名称" bindinput="setOrganName" />
+    </view>
+    <view class='item'>
+        <label>公司官网：</label>
+        <input type="text" placeholder="请输入公司名称" bindinput="setOrganName" />
+    </view>
+    <view class='item'>
+        <label>举办时间：</label>
+        <input type="text" placeholder="宣讲会时间" bindinput="setRealName" />
+    </view>
+    <view class='item'>
+        <label>所在学校：</label>
+        <input type="text" placeholder="宣讲会所在学校" bindinput="setCampus" />
+    </view>
+    <view class='item'>
+        <label>具体地址：</label>
+        <input type="text" placeholder="教学楼教室"/>
+    </view>
+    <view class='item'>
+        <view>{{official_site}}</view>
+        <view>{{employment_official_site}}</view>
+    </view>
+    <br />
+    <view class='item'>
+        <label bindtap="checkboxChange"><checkbox checked="{{checkbox}}" />发布即同意</label>
+        <navigator url="../agreement/agreement">《诚信协议》</navigator>
+    </view>
+</view>
+<view class="btn">
+    <button bindtap="refer">发布</button>
+</view>
