@@ -9,6 +9,7 @@ WXCampisRecuitmentPlatform/
 ├── images  # 图片文件夹，包含各种图标
 ├── pages	# 页面文件夹，包含小程序中的所有界面
 │   ├── account
+│   ├── agreement
 │   ├── calendar
 │   ├── detail
 │   ├── feedback
@@ -25,6 +26,26 @@ WXCampisRecuitmentPlatform/
 ```
 
 ## 更新日志
+
+### 2019-03-28
+
+1. 实现“发布日期选择”；
+2. 实现“学校名称检验是否存在于教育部公布的名单”；
+3. 实现“网址 url 前端 js 校验”（[更靠谱一些的正则表达式验证JS URL](https://soulteary.com/2014/12/05/better-url-regexp-in-js.html)）；
+4. 实现“输入框的内容去掉空格之后当做正确值”（[JS去掉字符串中的空格](https://www.jianshu.com/p/b4045ac4893d)）；
+5. 实现“input输入完之后点击下一步光标可以直接跳入下一个input”
+6. 解决“获取到的form data为Object”问题；
+
+### 2019-03-27
+
+1. 实现“发布信息表单重置”功能（微信公众平台--小程序form](https://developers.weixin.qq.com/miniprogram/dev/component/form.html)）；
+2. 解决“获取不到checkbox是否选中的状态”（[关于微信小程序中获取单个checkbox是否被选中状态的值](https://blog.csdn.net/Candy_mi/article/details/80107449)）；
+3. 实现“知晓《网络言论的法律边界》两种状态的submit按钮样式切换”；
+4. 优化代码结构（使用三目运算符代替简单的if……else），减少代码体积；
+
+### 2019-03-26
+
+1. 实现“公司名称是否已经存在”功能（[微信公众平台--小程序icon](https://developers.weixin.qq.com/miniprogram/dev/component/icon.html)）；
 
 ### 2019-03-25
 

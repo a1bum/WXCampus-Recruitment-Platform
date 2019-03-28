@@ -7,7 +7,8 @@
     "pages/detail/detail",
     "pages/feedback/feedback",
     "pages/publish/publish",
-    "pages/github/github"
+    "pages/github/github",
+    "pages/agreement/agreement"
   ],
   "window": {
     "navigationBarBackgroundColor": "#2AB9A2",

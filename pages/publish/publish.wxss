@@ -53,12 +53,18 @@ page {
   line-height: 1.4rem;
   color: #2ab9a2;
 }
-
-.btn {
-  margin-top: 80rpx;
+.default_submit{
+  width: 600rpx;
+  height: 80rpx;
+  color: #868888;
+  font-size: 30rpx;
+  border: 4rpx solid #868888;
+  border-radius: 35rpx;
+  background-color: transparent;
+  margin-top: 20rpx;
 }
 
-.btn button {
+.btn{
   width: 600rpx;
   height: 80rpx;
   color: #2ab9a2;
@@ -66,4 +72,6 @@ page {
   border: 4rpx solid #2ab9a2;
   border-radius: 35rpx;
   background-color: transparent;
+  margin-top: 20rpx;
 }
+

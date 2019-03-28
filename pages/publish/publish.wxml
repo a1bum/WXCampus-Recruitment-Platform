@@ -1,35 +1,52 @@
-<view class="title">信息发布</view>
-<view>
+<form bindsubmit='formSubmit'>
+  <view class="title">信息发布</view>
+  <view>
     <view class='item'>
-        <label>公司名称：</label>
-        <input type="text" placeholder="请输入公司名称" bindinput="setOrganName" />
+      <label>公司名称：</label>
+      <input type="text" bindconfirm='isComanyNameFinished' confirm-type='next' placeholder="请输入公司名称" bindfocus='hiddenCompanyIcon' bindblur='isExist' />
+      <icon type='success' hidden='{{isNExist}}' size='50rpx' />
+      <icon type='cancel' hidden='{{isExist}}' size='50rpx' />
     </view>
     <view class='item'>
-        <label>公司官网：</label>
-        <input type="text" placeholder="请输入公司名称" bindinput="setOrganName" />
+      <label>公司官网：</label>
+      <input focus='{{companyNameFinished}}' bindconfirm="isCompanyOfficialFinished"  type="text" confirm-type='next' placeholder="请输入公司官网" bindblur='checkUrlFormat'/>
+      <icon type='success' hidden='{{isNUrl}}' size='50rpx' />
+      <icon type='cancel' hidden='{{isUrl}}' size='50rpx' />
     </view>
     <view class='item'>
-        <label>举办时间：</label>
-        <input type="text" placeholder="宣讲会时间" bindinput="setRealName" />
+      <label>举办时间：</label>
+      <input focus="{{companyOfficialFinished}}" bindconfirm="isHoldTimeFinished" type="text"  confirm-type='next' placeholder="宣讲会时间" bindblur=''/>
+      <icon type='success' hidden='{{isNExpired}}' size='50rpx' />
+      <icon type='cancel' hidden='{{isExpired}}' size='50rpx' />
     </view>
     <view class='item'>
-        <label>所在学校：</label>
-        <input type="text" placeholder="宣讲会所在学校" bindinput="setCampus" />
+      <label>所在学校：</label>
+      <input focus="{{holdTimeFinished}}" bindconfirm="isUniversityNameFinished" type="text" confirm-type='next' placeholder="宣讲会所在学校" bindfocus='hiddenUniversityIcon' bindblur='isRegular' />
+      <icon type='success' hidden='{{isNRegular}}' size='50rpx' />
+      <icon type='cancel' hidden='{{isRegular}}' size='50rpx' />
     </view>
     <view class='item'>
-        <label>具体地址：</label>
-        <input type="text" placeholder="教学楼教室"/>
+      <label>具体地址：</label>
+      <input focus="{{universityNameFinished}}" type="text" confirm-type='done' placeholder="教学楼教室" bindblur="isEmpty" />
+      <icon type='success' hidden='{{isNEmpty}}' size='50rpx' />
+      <icon type='cancel' hidden='{{isEmpty}}' size='50rpx' />
     </view>
     <view class='item'>
-        <view>{{official_site}}</view>
-        <view>{{employment_official_site}}</view>
+      <view>{{official_site}}</view>
+      <view>{{employment_official_site}}</view>
     </view>
-    <br />
     <view class='item'>
-        <label bindtap="checkboxChange"><checkbox checked="{{checkbox}}" />发布即同意</label>
-        <navigator url="../agreement/agreement">《诚信协议》</navigator>
+      <label>
+        <checkbox-group bindchange="checkboxChange">
+          <checkbox value='agree'/>我已知晓
+        </checkbox-group>
+      </label>
+      <navigator url="../agreement/agreement">《网络言论的法律边界》</navigator>
     </view>
-</view>
-<view class="btn">
-    <button bindtap="refer">发布</button>
-</view>
+  </view>
+  <view>
+    <button class='default_submit' hidden='{{disagree}}'>发布</button>
+    <button class='btn' formType="submit" hidden='{{agree}}'>发布</button>
+    <button class='btn' formType="reset">重置</button>
+  </view>
+</form>

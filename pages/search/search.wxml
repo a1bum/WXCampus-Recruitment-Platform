@@ -2,7 +2,7 @@
   <view class="weui-search-bar__form">
     <view class="weui-search-bar__box">
       <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-      <input type="text" class="weui-search-bar__input" placeholder="搜索" focus='true' placeholder-class="plac" bindfocus='onFocus' bindblur='leaveFocus' bindconfirm='searchInput' />
+      <input type="text" confirm-type='search' class="weui-search-bar__input" placeholder="搜索" focus='true' placeholder-class="plac" bindfocus='onFocus' bindblur='leaveFocus' bindconfirm='searchInput' />
     </view>
   </view>
   <view class='weui-search-bar__cancel-btn' bindtap='returnHome'>取消</view>

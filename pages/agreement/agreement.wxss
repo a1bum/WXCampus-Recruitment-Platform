@@ -1,0 +1,18 @@
+page {
+  background: #fff;
+}
+
+.title {
+  color: #2ab9a2;
+  text-align: center;
+  padding: 30rpx;
+  font-size: 46rpx;
+}
+
+.text {
+  padding: 0rpx 40rpx;
+  color: #333;
+  font-size: 30rpx;
+  line-height: 1rem;
+  text-indent: 40rpx;
+}
