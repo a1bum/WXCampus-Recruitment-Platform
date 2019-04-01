@@ -27,6 +27,13 @@ WXCampisRecuitmentPlatform/
 
 ## 更新日志
 
+### 2019-03-30
+
+1. 项目部署到服务器，数据库迁移到服务器，部分数据通信通过与服务器端交互，一部分功能摆脱本地限制；
+2. 解决“mariadb本地可以连接，但是java项目连接access deny”问题（[修改数据库 plugin 为 mysql_native_password 而不是 unix_socket](https://mariadb.com/kb/en/library/authentication-plugin-unix-socket/) ）；
+3. 获取微信个人标识openid和用户名存储到后端数据库；
+4. 解决“app.js里面通过jscode获取openid，response 打印不出”问题（[小程序端是不行的，必须放在后端](https://cloud.tencent.com/developer/article/1026882)）；
+
 ### 2019-03-28
 
 1. 实现“发布日期选择”；

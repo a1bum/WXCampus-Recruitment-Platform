@@ -7,12 +7,12 @@
     </block>
   </view>
   <view class="">
+    <button class="publish_info weui-cell__bd" bindtap='toPublish'>发布信息</button>
+  </view>
+  <view class="">
     <button class="official_feedback weui-cell__bd" open-type='feedback'>小程序反馈</button>
   </view>
   <view class="">
     <button class="github_feedback weui-cell__bd" bindtap='toGithubIssue'>平台反馈</button>
-  </view>
-  <view class="">
-    <button class="publish_info weui-cell__bd" bindtap='toPublish'>发布信息</button>
   </view>
 </view>

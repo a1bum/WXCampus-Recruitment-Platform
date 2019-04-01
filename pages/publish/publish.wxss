@@ -23,6 +23,14 @@ page {
   padding: 5rpx 0;
   color: #333;
 }
+picker{
+  border:  #fff;
+  display: inline-block;
+  width: 420rpx;
+  font-size: 30rpx;
+  text-align: left;
+  border-radius: 4rpx;
+}
 
 .item input {
   border: 4rpx solid #ddd;

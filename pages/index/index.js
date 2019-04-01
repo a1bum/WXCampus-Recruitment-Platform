@@ -4,15 +4,15 @@ Page({
     inputVal: ""
   },
   // onLoad函数
-  onLoad: function (options){
+  onLoad: function(options) {
     this.visitInterface()
   },
   // 下拉刷新功能
-  onPullDownRefresh:function(){
-   this.visitInterface();
+  onPullDownRefresh: function() {
+    this.visitInterface();
   },
   // 访问接口获取数据
-  visitInterface:function(){
+  visitInterface: function() {
     let vm = this;
     let page = Math.ceil(Math.random() * 10);
     wx.showToast({
@@ -20,12 +20,12 @@ Page({
       icon: 'loading'
     });
     wx.request({
-      url: 'https://xiaoyuan.shixiseng.com/wx/xj/criteria?pageSize=15&p=' +page ,
+      url: 'https://xiaoyuan.shixiseng.com/wx/xj/criteria?pageSize=15&p=1',
       headers: {
         'Context-Type': 'application/json'
       },
-      success: function (res) {
-        let title = res.data.data.length != 0? '加载成功':'火星了，下拉刷新';
+      success: res=> {
+        let title = res.data.data.length != 0 ? '加载成功' : '火星了，下拉刷新';
         vm.setData({
           list: res.data.data,
         });
@@ -34,17 +34,17 @@ Page({
           icon: 'none',
         })
       },
-      fail:function(){
+      fail: function() {
         wx.showNavigationBarLoading();
       },
-      complete: function(){
+      complete: function() {
         wx.hideNavigationBarLoading();
         wx.stopPullDownRefresh();
       }
     })
   },
   // 跳转到search界面
-  toSearch:function(){
+  toSearch: function() {
     wx.navigateTo({
       url: '/pages/search/search',
     })

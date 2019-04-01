@@ -9,19 +9,29 @@
     </view>
     <view class='item'>
       <label>公司官网：</label>
-      <input focus='{{companyNameFinished}}' bindconfirm="isCompanyOfficialFinished"  type="text" confirm-type='next' placeholder="请输入公司官网" bindblur='checkUrlFormat'/>
+      <input focus='{{companyNameFinished}}' bindconfirm="isCompanyOfficialFinished" type="text" confirm-type='next' placeholder="请输入公司官网" bindblur='checkUrlFormat' />
       <icon type='success' hidden='{{isNUrl}}' size='50rpx' />
       <icon type='cancel' hidden='{{isUrl}}' size='50rpx' />
     </view>
     <view class='item'>
+      <label>举办日期：</label>
+      <picker mode='date'>
+        <input type="text" disabled='true' placeholder="宣讲会日期" bindblur='' />
+      </picker>
+      <icon type='success' hidden='{{isNExpired}}' size='50rpx' />
+      <icon type='cancel' hidden='{{isExpired}}' size='50rpx' />
+    </view>
+    <view class='item'>
       <label>举办时间：</label>
-      <input focus="{{companyOfficialFinished}}" bindconfirm="isHoldTimeFinished" type="text"  confirm-type='next' placeholder="宣讲会时间" bindblur=''/>
+      <picker mode='time'>
+        <input type="text" disabled='true' placeholder="宣讲会时间" bindblur='' />
+      </picker>
       <icon type='success' hidden='{{isNExpired}}' size='50rpx' />
       <icon type='cancel' hidden='{{isExpired}}' size='50rpx' />
     </view>
     <view class='item'>
       <label>所在学校：</label>
-      <input focus="{{holdTimeFinished}}" bindconfirm="isUniversityNameFinished" type="text" confirm-type='next' placeholder="宣讲会所在学校" bindfocus='hiddenUniversityIcon' bindblur='isRegular' />
+      <input type="text" confirm-type='next' placeholder="宣讲会所在学校" bindfocus='hiddenUniversityIcon' bindblur='isRegular' />
       <icon type='success' hidden='{{isNRegular}}' size='50rpx' />
       <icon type='cancel' hidden='{{isRegular}}' size='50rpx' />
     </view>
@@ -38,7 +48,7 @@
     <view class='item'>
       <label>
         <checkbox-group bindchange="checkboxChange">
-          <checkbox value='agree'/>我已知晓
+          <checkbox value='agree' />我已知晓
         </checkbox-group>
       </label>
       <navigator url="../agreement/agreement">《网络言论的法律边界》</navigator>
