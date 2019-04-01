@@ -27,6 +27,14 @@ WXCampisRecuitmentPlatform/
 
 ## 更新日志
 
+### 2019-04-01
+
+1. 所有与后端的通信接口全部替换为远程服务器接口；
+2. 实现“publish 界面发布日期点击上弹窗口选择日期”（[微信小程序--picker date](https://developers.weixin.qq.com/miniprogram/dev/component/picker.html)）；
+3. 实现“publish 界面发布时间点击上弹窗口选择时间”（[微信小程序--picker time](https://developers.weixin.qq.com/miniprogram/dev/component/picker.html)）；
+4. 实现“用户首次打开小程序时会进行后端数据库注册”；
+5. 解决“CentOS服务器上 java web project 运行python脚本返回值不正常”（which查看python路径，绝对路径写python脚本路径）；
+
 ### 2019-03-30
 
 1. 项目部署到服务器，数据库迁移到服务器，部分数据通信通过与服务器端交互，一部分功能摆脱本地限制；
