@@ -5,16 +5,14 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
     // 登录
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         wx.request({
-          url: 'http://47.112.16.146/WXMiniProgram/user/isExist?jscode=' + res.code,
+          url: 'http://127.0.0.1/WXMiniProgram/user/isExist?jscode=' + res.code,
           success: res2 => {
             if (res2.data.user.personal_statement == 'false') {
-              console.log("后台程序判断该用户还没有注册到数据库")
               // 获取用户信息
               if (res2.data.user.wx_id != null) {
                 wx.getSetting({
@@ -25,7 +23,7 @@ App({
                         success: res4 => {
                           // 可以将 res 发送给后台解码出 unionId
                           wx.request({
-                            url: 'http://47.112.16.146/WXMiniProgram/user/add?wx_id=' + res2.data.user.wx_id + '&user_name=' + res4.userInfo.nickName,
+                            url: 'http://127.0.0.1/WXMiniProgram/user/add?wx_id=' + res2.data.user.wx_id + '&user_name=' + res4.userInfo.nickName,
                             success: res5 => {
                               console.log('调用添加用户接口成功');
                             },

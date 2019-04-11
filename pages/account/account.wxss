@@ -1,5 +1,5 @@
 /*导入weui.wxss */
-@import '/utils/weui.wxss';
+@import '/utils/xss/weui.wxss';
 
 .official_feedback,.github_feedback,.publish_info{
   margin: 10rpx;

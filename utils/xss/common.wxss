@@ -8,7 +8,6 @@
   margin-top: 20rpx;
   margin-bottom: 20rpx;
 }
-
 .item_left,.item_right{
   flex-flow: column;
 }

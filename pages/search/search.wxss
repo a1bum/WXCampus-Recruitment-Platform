@@ -1,5 +1,5 @@
-@import '/utils/weui.wxss';
-@import '/utils/common.wxss';
+@import '/utils/xss/weui.wxss';
+@import '/utils/xss/common.wxss';
 
 /* 搜索历史部分 */
 .search-history-title {

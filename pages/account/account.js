@@ -5,14 +5,16 @@ Page({
   data: {
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    isAdmin: '',
   },
   onLoad: function () {
+    
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
-      })
+      });
     } else if (this.data.canIUse) {
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
@@ -36,7 +38,6 @@ Page({
     }
   },
   getUserInfo: function (e) {
-    console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
@@ -45,16 +46,20 @@ Page({
   },
   // 跳转到github提交issue
   toGithubIssue:function(e){
-    console.log(e)
     wx.navigateTo({
       url: '/pages/github/github',
     })
   },
   // 跳转到 发布信息页面
   toPublish:function(e){
-    console.log(e)
     wx.navigateTo({
       url: '/pages/publish/publish',
+    })
+  },
+  // 跳转到收藏页面
+  toCollection:function(e){
+    wx.navigateTo({
+      url: '/pages/collection/collection',
     })
   }
 })

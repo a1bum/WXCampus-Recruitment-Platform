@@ -10,12 +10,13 @@ Page({
     'isNUrl': true,
     'agree': true,
     'disagree': false,
-    'isRegular': true,
-    'isNRegular': true,
     'isExist': true,
     'isNExist': true,
     'isEmpty': true,
     'isNEmpty': true,
+    'holdTime': '',
+    'startTime': '',
+    'endTime': ''
   },
   //当光标在框内时隐藏图标
   hiddenCompanyIcon: function(e) {
@@ -26,6 +27,7 @@ Page({
   },
   // 当光标离开时ajax判断是否在数据库中存在
   isExist: function(e) {
+    console.log(e.detail.value)
     let vm = this;
     let company_name = e.detail.value.replace(/\s+/g, "");
     if (company_name == '') {
@@ -37,13 +39,13 @@ Page({
     } else {
       console.log('公司名称查询接口贝被调用 ' + company_name);
       wx.request({
-        url: 'http://47.112.16.146/WXMiniProgram/company/isExist?company_name=' + company_name,
+        url: 'http://127.0.0.0.1/WXMiniProgram/company/isExist?company_name=' + company_name,
         success: function(res) {
           vm.setData({
             'isNExist': res.data.result == true ? false : true,
             'isExist': res.data.result == true ? true : false,
           });
-          console.log('http://47.112.16.146/WXMiniProgram/company/isExist?company_name=' + company_name);
+          console.log('http://127.0.0.0.1/WXMiniProgram/company/isExist?company_name=' + company_name);
 
         },
         fail: function(res) {
@@ -51,12 +53,6 @@ Page({
         },
       });
     }
-  },
-  // 点击下一步键光标跳入下一个input
-  isComanyNameFinished: function(e) {
-    this.setData({
-      'companyNameFinished': true,
-    })
   },
   // 检查是否符合url格式
   checkUrlFormat: function(e) {
@@ -75,45 +71,6 @@ Page({
       })
     }
   },
-  // 光标在学校框内时隐藏图标显示
-  hiddenUniversityIcon: function(e) {
-    this.setData({
-      'isRegular': true,
-      'isNRegular': true,
-    });
-  },
-  // 查看输入的是不是正规学校，与公司名称原理一致
-  isRegular: function(e) {
-    let university_name = e.detail.value.replace(/\s+/g, "");
-    let vm = this;
-    if (university_name == '') {
-      console.log('输入的学校名称为空');
-      vm.setData({
-        'isRegular': false,
-        'isNRegular': true,
-      });
-    } else {
-      console.log('学校查询接口被调用 ' + university_name);
-      wx.request({
-        url: 'http://47.112.16.146/WXMiniProgram//university/isExist?university_name=' + university_name,
-        success: function(res) {
-          vm.setData({
-            'isRegular': res.data.result == true ? false : true,
-            'isNRegular': res.data.result == true ? true : false,
-          });
-        },
-        fail: function(res) {
-          console.log('接口请求失败，错误信息 ' + res.data);
-        }
-      });
-    }
-  },
-  // 点击下一步键光标跳入下一个input
-  isUniversityNameFinished: function(e) {
-    this.setData({
-      'universityNameFinished': true
-    });
-  },
   // 非空判断
   isEmpty: function(e) {
     let location = e.detail.value.replace(/\s+/g, "");
@@ -131,6 +88,54 @@ Page({
   },
   // 表单提交事件
   formSubmit: function(e) {
-    console.log('form发生了submit事件，携带数据为' + e);
+    let info = e.detail.value;
+    let company_name = info.company_name;
+    let hold_date = info.hold_date;
+    let start_time = info.start_time;
+    let end_time = info.end_time;
+    let university_name = info.university_name;
+    let locations = info.locations;
+    if(company_name == '' || hold_date=='' || start_time=='' || end_time==''||university_name==''||locations==''){
+      wx.showToast({
+        title: '输入信息不合法',
+        icon: 'none'
+      })
+    }else{
+      wx.request({
+        url: 'http://127.0.0.1/WXMiniProgram/info/add?company_name=' + company_name + '&company_official=' + company_official + '&hold_date=' + + '&start_time=' + start_time + '&end_time=' + end_time + '&locations=' + locations,
+        success: res => {
+          console.log('请求添加信息接口成功');
+        },
+        fail: res => {
+          console.log('请求接口信息接口失败')
+        },
+      })
+    }
+  },
+  // 设置日期
+  setHoldTime:function(e){
+    console.log('举办日期事件发生，携带的数据为 ' + e.detail.value);
+    this.setData({
+      'holdTime': e.detail.value,
+    });
+  },
+  // 设置开始时间
+  setStartTime:function(e){
+    console.log('开始时间事件发生，携带的数据为 '+ e.detail.value);
+    this.setData({
+      'startTime': e.detail.value
+    })
+  },
+  // 设置结束时间
+  setEndTime:function(e){
+    this.setData({
+      'endTime': e.detail.value
+    })
+  },
+  //跳转至学校选择页面
+  toUniverstiy:function(e){
+    wx.navigateTo({
+      url: '/pages/university/university',
+    })
   },
 })

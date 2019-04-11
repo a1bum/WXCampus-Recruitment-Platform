@@ -90,16 +90,16 @@ Page({
       title: '请稍等',
     });
     // 访问接口
+    let today = new Date().toLocaleDateString().replace(/[/]/g, '-');
+    console.log(today);
     wx.request({
-      url: 'https://xiaoyuan.shixiseng.com/wx/xj/criteria?k=' + keyword,
-      headers: {
-        'Context-Type': 'application/json'
-      },
+      url: 'http://127.0.0.1/WXMiniProgram/info/query?keyword=' + keyword + '&today=' + today,
+      // url: 'https://xiaoyuan.shixiseng.com/wx/xj/criteria?k=' + keyword,
       success: function(res) {
         wx.hideLoading();
         vm.setData({
           keyword: keyword,
-          list: res.data.data
+          list: res.data.cri
         });
       }
     });

@@ -1,4 +1,4 @@
-@import '/utils/common.wxss';
+@import '/utils/xss/common.wxss';
 /* 日历部分样式 */
 .downIcon{
   position: absolute;

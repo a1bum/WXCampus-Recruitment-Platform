@@ -1,5 +1,7 @@
 ## WXCampus-Recruitment-Platform（微信小程序校招平台）
 
+![](<https://img.shields.io/badge/wechatdevtools-1.02-blue.svg>)![](<https://img.shields.io/badge/weui-1.1.1-blue.svg>)![](<https://img.shields.io/badge/JAVA-1.8-blue.svg>)![](<https://img.shields.io/badge/maven-3.5.4-blue.svg>)
+
 &emsp;&emsp;微信小程序与微信账户体系高度集成，用户无需注册即可使用。相较于传统APP的独立账户体系或被切割化的第三方授权，微信小程序的授权过程简单、友好、快速，对于用户而言，不需要懂太多网络知识，操作简单且极为方便。此外，微信小程序打开速度比H5还快，接近原生APP，用户体验感好。本毕业设计题目基于微信小程序技术实现一个校园招聘信息平台，可以查询校园宣讲会信息，提供最新、最详细、最准确的企业校招信息，帮助学生实时了解校招宣讲会动态，洞悉企业校招热度。要求选题学生具备良好的学习能力，具备扎实的前端技术基本功，快速掌握微信小程序的开发原理，以及良好的界面设计能力。
 
 ## 目录结构
@@ -26,6 +28,17 @@ WXCampisRecuitmentPlatform/
 ```
 
 ## 更新日志
+
+### 2019-04-11(ing)
+
+1. readme.md 填写徽标；
+2. 解决“由于更换接口，后端没做分页处理导致的数据量过多而页面渲染过于缓慢”问题；
+3. 实现 AJAX 异步加载分页信息。
+
+### 2019-04-10
+
+1. 换取数据请求接口为本地 java 后端接口；
+2. 尝试添加收藏功能的 UI 设计。
 
 ### 2019-04-01
 
@@ -142,15 +155,23 @@ WXCampisRecuitmentPlatform/
 
 ## 图片来源
 
-[1]: https://img.icons8.com/ios/80/000000/home-page.png	"白色主页图标"
-[2]: https://img.icons8.com/ios/80/000000/home-page-filled.png	"黑色主页图标"
-[3]: https://img.icons8.com/ios/50/000000/today.png	"白色日历图标"
-[4]: https://img.icons8.com/ios/50/000000/today-filled.png	"黑色日历图标"
-[5]: https://img.icons8.com/ios/50/000000/contacts.png	"白色个人中心图标"
-[6]: https://img.icons8.com/ios/50/000000/user-filled.png	"黑色个人中心图标"
-[7]: https://img.icons8.com/ios/50/000000/back-filled.png	"左箭头图标"
-[8]: https://img.icons8.com/ios/50/000000/forward-filled.png	"右箭头图标"
-[9]: https://img.icons8.com/ios/50/000000/graduation-cap.png	"毕业帽图标"
-[10]: https://img.icons8.com/ios/50/000000/alarm-on.png	"闹钟图标"
-[11]: http://www.shejiye.com/index.php?m=content&amp;c=index&amp;a=show&amp;catid=22&amp;id=124908	"下箭头图标 "
+大部分来自 icons8.cn
+
+ [白色主页图标](https://img.icons8.com/ios/80/000000/home-page.png)
+
+ [黑色主页图标](https://img.icons8.com/ios/80/000000/home-page-filled.png )
+
+[白色日历图标](https://img.icons8.com/ios/50/000000/today.png)
+
+[黑色日历图标](https://img.icons8.com/ios/50/000000/today-filled.png)
+
+[白色个人中心图标](https://img.icons8.com/ios/50/000000/contacts.png )
+
+[黑色个人中心图标](https://img.icons8.com/ios/50/000000/user-filled.png )
+
+[毕业帽图标](https://img.icons8.com/ios/50/000000/graduation-cap.png )
+
+[闹钟图标](https://img.icons8.com/ios/50/000000/alarm-on.png )
+
+[下箭头图标](http://www.shejiye.com/index.php?m=content&amp;c=index&amp;a=show&amp;catid=22&amp;id=124908)
 

@@ -3,47 +3,39 @@
   <view>
     <view class='item'>
       <label>公司名称：</label>
-      <input type="text" bindconfirm='isComanyNameFinished' confirm-type='next' placeholder="请输入公司名称" bindfocus='hiddenCompanyIcon' bindblur='isExist' />
+      <input name="company_name" type="text" confirm-type='next' placeholder="请输入公司名称" bindfocus='hiddenCompanyIcon' bindblur='isExist' />
       <icon type='success' hidden='{{isNExist}}' size='50rpx' />
       <icon type='cancel' hidden='{{isExist}}' size='50rpx' />
     </view>
     <view class='item'>
-      <label>公司官网：</label>
-      <input focus='{{companyNameFinished}}' bindconfirm="isCompanyOfficialFinished" type="text" confirm-type='next' placeholder="请输入公司官网" bindblur='checkUrlFormat' />
-      <icon type='success' hidden='{{isNUrl}}' size='50rpx' />
-      <icon type='cancel' hidden='{{isUrl}}' size='50rpx' />
-    </view>
-    <view class='item'>
       <label>举办日期：</label>
-      <picker mode='date'>
-        <input type="text" disabled='true' placeholder="宣讲会日期" bindblur='' />
+      <picker mode='date' bindchange='setHoldTime'>
+        <input name="hold_date" type="text" disabled='true' placeholder="宣讲会日期" value="{{holdTime}}" />
       </picker>
       <icon type='success' hidden='{{isNExpired}}' size='50rpx' />
       <icon type='cancel' hidden='{{isExpired}}' size='50rpx' />
     </view>
     <view class='item'>
-      <label>举办时间：</label>
-      <picker mode='time'>
-        <input type="text" disabled='true' placeholder="宣讲会时间" bindblur='' />
+      <label>开始时间：</label>
+      <picker mode='time' start="08:00" end='21:30' bindchange="setStartTime">
+        <input name="end_time" type="text" disabled='true' placeholder="宣讲会时间" value='{{startTime}}' />
       </picker>
-      <icon type='success' hidden='{{isNExpired}}' size='50rpx' />
-      <icon type='cancel' hidden='{{isExpired}}' size='50rpx' />
     </view>
     <view class='item'>
-      <label>所在学校：</label>
-      <input type="text" confirm-type='next' placeholder="宣讲会所在学校" bindfocus='hiddenUniversityIcon' bindblur='isRegular' />
-      <icon type='success' hidden='{{isNRegular}}' size='50rpx' />
-      <icon type='cancel' hidden='{{isRegular}}' size='50rpx' />
+      <label>结束时间：</label>
+      <picker mode='time' start='08:30' end='22:00' bindchange="setEndTime">
+        <input name="end_time" type="text" disabled='true' placeholder="宣讲会时间" value='{{endTime}}' />
+      </picker>
+    </view>
+    <view class='item'>
+        <label>所在学校：</label>
+        <input name="unniversity_name" type="text" placeholder="宣讲会所在学校" bindtap='toUniverstiy'/>
     </view>
     <view class='item'>
       <label>具体地址：</label>
-      <input focus="{{universityNameFinished}}" type="text" confirm-type='done' placeholder="教学楼教室" bindblur="isEmpty" />
+      <input name="locations" type="text" confirm-type='done' placeholder="教学楼教室" bindblur="isEmpty" />
       <icon type='success' hidden='{{isNEmpty}}' size='50rpx' />
       <icon type='cancel' hidden='{{isEmpty}}' size='50rpx' />
-    </view>
-    <view class='item'>
-      <view>{{official_site}}</view>
-      <view>{{employment_official_site}}</view>
     </view>
     <view class='item'>
       <label>

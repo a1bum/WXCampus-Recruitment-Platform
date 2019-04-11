@@ -80,7 +80,6 @@ Page({
   curHot: function (e) {
     let vm = this;
     let selectedDate = e.currentTarget.dataset.date.value;
-    //console.log('选中', e.currentTarget.dataset.date.value);
     vm.setData({
       selectedDate: selectedDate,
       selectedWeek: vm.data.weekArr[e.currentTarget.dataset.date.week]
@@ -91,14 +90,18 @@ Page({
   // 访问接口函数
   visitInterface: function (selectedDate) {
     let vm = this;
+    let year = selectedDate.split('-')[0];
+    let month = selectedDate.split('-')[1];
+    let day = selectedDate.split('-')[2];
+    month = month.length==2?month:'0'+month;
+    day = day.length==2?day:'0'+day;
+    selectedDate = year + '-' + month + '-' + day;
     wx.request({
-      url: 'https://xiaoyuan.shixiseng.com/wx/xj/criteria?order=hot&d=' + selectedDate + '&p=1',
-      headers: {
-        "Context-Type": "application/json"
-      },
+      url: 'http://127.0.0.1/WXMiniProgram/info/date?key=' + selectedDate,
+      // url: 'https://xiaoyuan.shixiseng.com/wx/xj/criteria?order=hot&d=' + selectedDate + '&p=1',
       success: function (res) {
         vm.setData({
-          list: res.data.data
+          list: res.data.cri
         })
       }
     })
