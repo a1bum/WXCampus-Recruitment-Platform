@@ -1,6 +1,6 @@
 ## WXCampus-Recruitment-Platform（微信小程序校招平台）
 
-![](<https://img.shields.io/badge/wechatdevtools-1.02-blue.svg>)![](<https://img.shields.io/badge/weui-1.1.1-blue.svg>)![](<https://img.shields.io/badge/JAVA-1.8-blue.svg>)![](<https://img.shields.io/badge/maven-3.5.4-blue.svg>)
+![](<https://img.shields.io/badge/wechatdevtools-1.02-blue.svg>)&emsp;![](<https://img.shields.io/badge/weui-1.1.1-blue.svg>)&emsp;![](<https://img.shields.io/badge/JAVA-1.8-blue.svg>)&emsp;![](<https://img.shields.io/badge/maven-3.5.4-blue.svg>)
 
 &emsp;&emsp;微信小程序与微信账户体系高度集成，用户无需注册即可使用。相较于传统APP的独立账户体系或被切割化的第三方授权，微信小程序的授权过程简单、友好、快速，对于用户而言，不需要懂太多网络知识，操作简单且极为方便。此外，微信小程序打开速度比H5还快，接近原生APP，用户体验感好。本毕业设计题目基于微信小程序技术实现一个校园招聘信息平台，可以查询校园宣讲会信息，提供最新、最详细、最准确的企业校招信息，帮助学生实时了解校招宣讲会动态，洞悉企业校招热度。要求选题学生具备良好的学习能力，具备扎实的前端技术基本功，快速掌握微信小程序的开发原理，以及良好的界面设计能力。
 
