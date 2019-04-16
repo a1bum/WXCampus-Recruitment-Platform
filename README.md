@@ -11,13 +11,11 @@ WXCampisRecuitmentPlatform/
 ├── images  # 图片文件夹，包含各种图标
 ├── pages	# 页面文件夹，包含小程序中的所有界面
 │   ├── account
-│   ├── agreement
 │   ├── calendar
 │   ├── detail
 │   ├── feedback
 │   ├── github
 │   ├── index
-│   ├── publish
 │   └── search
 ├── utils	# 小程序中用到的公用资源
 │   ├── common.wxss
@@ -29,11 +27,16 @@ WXCampisRecuitmentPlatform/
 
 ## 更新日志
 
-### 2019-04-11(ing)
+### 2019-04-15
 
-1. readme.md 填写徽标；
+​	删除所有冗余无关页面，使代码结构更加清晰，保证代码质量。
+
+### 2019-04-11
+
+1. readme.md 填写徽标（[GitHub项目README.md设置徽标（环境、build](https://blog.csdn.net/chenbetter1996/article/details/85099176)）；
 2. 解决“由于更换接口，后端没做分页处理导致的数据量过多而页面渲染过于缓慢”问题；
-3. 实现 AJAX 异步加载分页信息。
+3. 实现 AJAX 异步加载分页信息（[微信小程序之上拉加载与下拉刷新](https://zhuanlan.zhihu.com/p/34228818)）;
+4. js 前端判断登录用户是否为管理员，以此来设置account.xml界面的发布信息按钮是否可见。
 
 ### 2019-04-10
 
@@ -174,4 +177,3 @@ WXCampisRecuitmentPlatform/
 [闹钟图标](https://img.icons8.com/ios/50/000000/alarm-on.png )
 
 [下箭头图标](http://www.shejiye.com/index.php?m=content&amp;c=index&amp;a=show&amp;catid=22&amp;id=124908)
-

@@ -11,7 +11,9 @@ Page({
     weekArr: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
     dateList: [],
     selectedDate: '',
-    selectedWeek: ''
+    selectedWeek: '',
+    page: 1,
+    list: []
   },
   // 页面初始化 options为页面跳转所带来的参数
   onLoad: function (options) {
@@ -88,21 +90,23 @@ Page({
     vm.visitInterface(selectedDate);
   },
   // 访问接口函数
-  visitInterface: function (selectedDate) {
+  visitInterface: function (selectedDate, page) {
     let vm = this;
     let year = selectedDate.split('-')[0];
     let month = selectedDate.split('-')[1];
     let day = selectedDate.split('-')[2];
+    console.log(selectedDate);
     month = month.length==2?month:'0'+month;
     day = day.length==2?day:'0'+day;
     selectedDate = year + '-' + month + '-' + day;
     wx.request({
-      url: 'http://127.0.0.1/WXMiniProgram/info/date?key=' + selectedDate,
+      url: 'http://127.0.0.1/WXMiniProgram/info/date?key=' + selectedDate + '&p=' + this.data.page,
       // url: 'https://xiaoyuan.shixiseng.com/wx/xj/criteria?order=hot&d=' + selectedDate + '&p=1',
       success: function (res) {
+        const cries = res.data.cri;
         vm.setData({
-          list: res.data.cri
-        })
+          list: vm.data.list.concat(cries)
+        });
       }
     })
   },
@@ -115,5 +119,9 @@ Page({
       curMonth: date[1],
     });
     vm.getDateList(date[0], parseInt(date[1])-1);
+  },
+  // 触底事件
+  onReachBottom: function () {
+    this.visitInterface(this.data.curDate, this.data.page+1);
   },
 })

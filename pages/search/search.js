@@ -2,6 +2,9 @@ Page({
   data: {
     status: true,
     history: ["北京", "上海", "广州"],
+    page: 1,
+    pages: 0,
+    list: []
   },
   // 搜索历史记录
   historySearch: function(e) {
@@ -50,7 +53,7 @@ Page({
         icon: 'none',
       });
     } else {
-      vm.search(keyword);
+      vm.search(keyword, this.data.page);
       // 搜索历史记录缓存
       vm.data.history.unshift(keyword);
       wx.setStorage({
@@ -84,31 +87,35 @@ Page({
   },
 
   // 搜素事件
-  search: function(keyword) {
+  search: function(keyword, page) {
     let vm = this;
     wx.showLoading({
       title: '请稍等',
     });
     // 访问接口
     let today = new Date().toLocaleDateString().replace(/[/]/g, '-');
-    console.log(today);
+    let year = today.split('-')[0];
+    let month = today.split('-')[1];
+    let day = today.split('-')[2];
+    month = month.length == 2 ? month : '0' + month;
+    day = day.length == 2 ? day : '0' + day;
+    today = year + '-' + month + '-' + day;
     wx.request({
-      url: 'http://127.0.0.1/WXMiniProgram/info/query?keyword=' + keyword + '&today=' + today,
+      url: 'http://127.0.0.1/WXMiniProgram/info/query?key=' + keyword + '&today=' + today + '&p=' + page,
       // url: 'https://xiaoyuan.shixiseng.com/wx/xj/criteria?k=' + keyword,
       success: function(res) {
+        const cries = res.data.cri;
         wx.hideLoading();
         vm.setData({
           keyword: keyword,
-          list: res.data.cri
+          list: vm.data.list.concat(cries),
         });
       }
     });
+
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
-  }
+  // 触底事件
+  onReachBottom: function() {
+    this.search(this.data.keyword, this.data.page + 1);
+  },
 })

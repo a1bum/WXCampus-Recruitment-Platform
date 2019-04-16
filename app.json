@@ -6,10 +6,7 @@
     "pages/search/search",
     "pages/detail/detail",
     "pages/feedback/feedback",
-    "pages/publish/publish",
     "pages/github/github",
-    "pages/agreement/agreement",
-    "pages/university/university",
     "pages/collection/collection"
   ],
   "permission": {
