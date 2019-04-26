@@ -4,10 +4,7 @@ Page({
   visitInterface: function(uuid){
     let vm = this;
     wx.request({
-      url: 'https://xiaoyuan.shixiseng.com/wx/xjd/detail?uuid=' + uuid,
-      headers: {
-        'Context-Type': 'application/json'
-      },
+      url: 'https://a1bum.top/wx/info/detail?criId=' + criId,
       success: function (res) {
         if(res.data.msg){
           // 错误请求处理
@@ -16,13 +13,10 @@ Page({
             icon: 'none',
           });
         }else{
-          let title = res.data.data.preach_context != ''?'表格可滑动':'貌似没有正文';
           vm.setData({
+            criId: uuid,
             detail: res.data.data,
-          });
-          wx.showToast({
-            title: title,
-            icon: "none",
+            isCollect: '/images/alarm.png'
           });
         }
       },
@@ -46,5 +40,36 @@ Page({
     var vm = this;
     var uuid = this.data.detail.uuid;
     this.visitInterface(uuid);
+  },
+  // 收藏事件
+  collect:function(e){
+    let vm = this;
+    var isCollect = vm.data.isCollect;
+    if (isCollect == '/images/alarm.png'){
+      wx.request({
+        url: '/WxMiniProgram/collect/add',
+        data: {
+          criId: vm.data.criId,
+          company_name: vm.data.detail.company_name,
+          hold_date: vm.data.detail.begin_datetime.split(' ')[0],
+          start_time: vm.data.detail.begin_datetime.split('')[1]
+        },
+        success:function(res){
+          wx.showToast({
+            title: '已收藏',
+          })
+        },
+        fail:function(res){
+          console.log("失败")
+        }
+      })
+      vm.setData({
+        isCollect: '/images/alarm-selected.png'
+      })
+    }else{
+      vm.setData({
+        isCollect: '/images/alarm.png'
+      })
+    }
   }
 })

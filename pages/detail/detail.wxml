@@ -10,11 +10,6 @@
           </view>
         </view>
         <view class='weui-flex'>
-          <view class="weui-flex__item source">
-            <text decode='true'>&nbsp;来源：{{detail.org_name}}</text>
-          </view>
-        </view>
-        <view class='weui-flex'>
           <image class='icon' src='/images/school_detail.png'></image>
           <text decode="true" class='weui-flex__item additional_info'>&nbsp;{{detail.school_name}}</text>
           <image class='icon' src='/images/time_detail.png'></image>
@@ -31,3 +26,10 @@
 <view class='rich-text-wrp'>
   <rich-text nodes="{{detail.preach_context}}"></rich-text>
 </view>
+<form report-submit='true' bindsubmit='collect'>
+  <view class='collect'>
+    <button formType='submit'>
+      <image class="collect_icon" src="{{isCollect}}"></image>
+    </button>
+  </view>
+</form>

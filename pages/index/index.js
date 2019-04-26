@@ -15,24 +15,12 @@ Page({
   visitInterface: function() {
     let vm = this;
     let page = Math.ceil(Math.random() * 10);
-    wx.showToast({
-      title: 'loading',
-      icon: 'loading'
-    });
     wx.request({
-      url: 'https://xiaoyuan.shixiseng.com/wx/xj/criteria?pageSize=15&p=1',
-      headers: {
-        'Context-Type': 'application/json'
-      },
+      url: 'https://a1bum.top/WXMiniProgram/info/page',
       success: res=> {
-        let title = res.data.data.length != 0 ? '加载成功' : '火星了，下拉刷新';
         vm.setData({
-          list: res.data.data,
+          list: res.data.cri,
         });
-        wx.showToast({
-          title: title,
-          icon: 'none',
-        })
       },
       fail: function() {
         wx.showNavigationBarLoading();

@@ -10,7 +10,7 @@ App({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         wx.request({
-          url: 'http://127.0.0.1/WXMiniProgram/user/isExist?jscode=' + res.code,
+          url: 'https://a1bum.top/WXMiniProgram/WXUser/isExist?jscode=' + res.code,
           success: res2 => {
             if (res2.data.user.personal_statement == 'false') {
               // 获取用户信息
@@ -22,8 +22,9 @@ App({
                       wx.getUserInfo({
                         success: res4 => {
                           // 可以将 res 发送给后台解码出 unionId
+                          this.globalData.userInfo = res.userInfo
                           wx.request({
-                            url: 'http://127.0.0.1/WXMiniProgram/user/add?wx_id=' + res2.data.user.wx_id + '&user_name=' + res4.userInfo.nickName,
+                            url: 'https://a1bum.top/WXMiniProgram/user/add?wx_id=' + res2.data.user.wx_id + '&user_name=' + res4.userInfo.nickName,
                             success: res5 => {
                               console.log('调用添加用户接口成功');
                             },
@@ -56,10 +57,11 @@ App({
         })
       }
     })
-
   },
+  
   globalData: {
     jscode: '',
-    openid: ''
+    openid: '',
+    userInfo: null
   }
 })

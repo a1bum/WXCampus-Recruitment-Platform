@@ -100,8 +100,7 @@ Page({
     day = day.length==2?day:'0'+day;
     selectedDate = year + '-' + month + '-' + day;
     wx.request({
-      url: 'http://127.0.0.1/WXMiniProgram/info/date?key=' + selectedDate + '&p=' + this.data.page,
-      // url: 'https://xiaoyuan.shixiseng.com/wx/xj/criteria?order=hot&d=' + selectedDate + '&p=1',
+      url: 'https://a1bum.top/WXMiniProgram/info/date?key=' + selectedDate + '&p=' + this.data.page,
       success: function (res) {
         const cries = res.data.cri;
         vm.setData({

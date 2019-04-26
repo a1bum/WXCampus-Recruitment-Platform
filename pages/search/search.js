@@ -97,12 +97,15 @@ Page({
     let year = today.split('-')[0];
     let month = today.split('-')[1];
     let day = today.split('-')[2];
+    console.log(today)
+    console.log(year)
+    console.log(month)
+    console.log(day)
     month = month.length == 2 ? month : '0' + month;
     day = day.length == 2 ? day : '0' + day;
     today = year + '-' + month + '-' + day;
     wx.request({
-      url: 'http://127.0.0.1/WXMiniProgram/info/query?key=' + keyword + '&today=' + today + '&p=' + page,
-      // url: 'https://xiaoyuan.shixiseng.com/wx/xj/criteria?k=' + keyword,
+      url: 'https://a1bum.top/WXMiniProgram/info/query?key=' + keyword + '&today=' + today + '&p=' + page,
       success: function(res) {
         const cries = res.data.cri;
         wx.hideLoading();
@@ -110,6 +113,9 @@ Page({
           keyword: keyword,
           list: vm.data.list.concat(cries),
         });
+      },
+      fail:function(res){
+        console.log('请求失败' + res)
       }
     });
 

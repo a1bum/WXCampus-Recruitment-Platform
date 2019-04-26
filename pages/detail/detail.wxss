@@ -1,7 +1,16 @@
 @import '/utils/xss/weui.wxss';
 @import '/utils/xss/common.wxss';
 
-.rich-text-wrp{
+.collect_icon {
+  background-color: #595959;
+  position: fixed;
+  width: 70rpx;
+  height: 70rpx;
+  bottom: 40rpx;
+  right: 30rpx;
+}
+
+.rich-text-wrp {
   margin-left: 20rpx;
   margin-right: 20rpx;
   width: auto;
