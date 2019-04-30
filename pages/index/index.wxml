@@ -10,9 +10,9 @@
 <!-- 信息显示部分 -->
 <view class="page__bd">
   <view class="kind-list">
-    <block wx:for="{{list}}" wx:key="id">
-      <navigator url='/pages/detail/detail?uuid={{item.uuid}}' class="kind-list__item item_box">
-        <view class="weui-flex kind-list__item-hd item_left" bindtap="viewDetails">
+    <block wx:for="{{list}}" wx:key="{{id}}">
+      <navigator url='/pages/detail/detail?cri_id={{item.id}}' class="kind-list__item item_box">
+        <view class="weui-flex kind-list__item-hd item_left">
           <image wx:if="{{item.logo_url}}" class="circle" src="{{item.logo_url}}"></image>
           <image wx:else="{{item.logo_url == ''}}" class='circle' src='/images/default.png'></image>
         </view>

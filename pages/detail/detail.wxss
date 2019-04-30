@@ -1,13 +1,13 @@
 @import '/utils/xss/weui.wxss';
 @import '/utils/xss/common.wxss';
 
-.collect_icon {
-  background-color: #595959;
+.bottom {
+  width: 100%;
+  height: 7%;
   position: fixed;
-  width: 70rpx;
-  height: 70rpx;
-  bottom: 40rpx;
-  right: 30rpx;
+  bottom: 0;
+  margin-top: 1rpx;
+  background-color: #fff;
 }
 
 .rich-text-wrp {

@@ -9,11 +9,6 @@
     "pages/github/github",
     "pages/collection/collection"
   ],
-  "permission": {
-    "scope.userLocation": {
-      "desc": "你的位置信息将用于小程序位置接口的效果展示"
-    }
-  },
   "window": {
     "navigationBarBackgroundColor": "#2AB9A2",
     "navigationBarTitleText": "简招",
@@ -44,5 +39,6 @@
         "text": "我的"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

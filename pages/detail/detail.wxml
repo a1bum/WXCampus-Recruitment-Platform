@@ -1,35 +1,35 @@
 <view class="kind-list">
   <view class="kind-list__item">
     <view class="weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}} detail_head">
-      <image wx:if="{{detail.img_uuid}}" class="circle" src="{{detail.img_uuid}}"></image>
-      <image wx:else="{{detail.img_uuid == ''}}" class='circle' src='/images/default_detail.png'></image>
+      <image wx:if="{{cri.logo_url}}" class="circle" src="{{cri.logo_url}}"></image>
+      <image wx:else="{{cri.logo_url == ''}}" class='circle' src='/images/default_detail.png'></image>
       <view>
         <view class='weui-flex'>
           <view class="weui-flex__item company_name">
-            <text decode='true'>&nbsp;&nbsp;{{detail.company_name}}</text>
+            <text decode='true'>&nbsp;&nbsp;{{cri.company_name}}</text>
           </view>
         </view>
         <view class='weui-flex'>
           <image class='icon' src='/images/school_detail.png'></image>
-          <text decode="true" class='weui-flex__item additional_info'>&nbsp;{{detail.school_name}}</text>
+          <text decode="true" class='weui-flex__item additional_info'>&nbsp;{{cri.university_name}}</text>
           <image class='icon' src='/images/time_detail.png'></image>
-          <text decode='true' class='weui-flex__item additional_info'>&nbsp;{{detail.begin_datetime}}</text>
+          <text decode='true' class='weui-flex__item additional_info'>&nbsp;{{cri.hold_date}}&ensp;{{cri.start_time}}</text>
         </view>
         <view class='weui-flex'>
           <image class='icon' src='/images/location_detail.png'></image>
-          <text decode="true" class='weui-flex__item additional_info'>&nbsp;{{detail.place}}</text>
+          <text decode="true" class='weui-flex__item additional_info'>&nbsp;{{cri.locations}}</text>
         </view>
       </view>
     </view>
   </view>
 </view>
 <view class='rich-text-wrp'>
-  <rich-text nodes="{{detail.preach_context}}"></rich-text>
+  <rich-text nodes="{{cri.detail}}"></rich-text>
 </view>
-<form report-submit='true' bindsubmit='collect'>
-  <view class='collect'>
-    <button formType='submit'>
-      <image class="collect_icon" src="{{isCollect}}"></image>
-    </button>
-  </view>
-</form>
+<view class="bottom">
+  <form report-submit='true' bindsubmit='collect'>
+    <view class='collect'>
+      <button form-type="{{isCollect}}" >收藏</button>
+    </view>
+  </form>
+</view>

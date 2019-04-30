@@ -5,7 +5,7 @@ Page({
   },
   // onLoad函数
   onLoad: function(options) {
-    this.visitInterface()
+    this.visitInterface();
   },
   // 下拉刷新功能
   onPullDownRefresh: function() {
@@ -17,9 +17,10 @@ Page({
     let page = Math.ceil(Math.random() * 10);
     wx.request({
       url: 'https://a1bum.top/WXMiniProgram/info/page',
+      header: { 'content-type': 'application/json' },
       success: res=> {
         vm.setData({
-          list: res.data.cri,
+          list: res.data.cri.list,
         });
       },
       fail: function() {

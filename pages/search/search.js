@@ -3,7 +3,6 @@ Page({
     status: true,
     history: ["北京", "上海", "广州"],
     page: 1,
-    pages: 0,
     list: []
   },
   // 搜索历史记录
@@ -97,24 +96,21 @@ Page({
     let year = today.split('-')[0];
     let month = today.split('-')[1];
     let day = today.split('-')[2];
-    console.log(today)
-    console.log(year)
-    console.log(month)
-    console.log(day)
     month = month.length == 2 ? month : '0' + month;
     day = day.length == 2 ? day : '0' + day;
     today = year + '-' + month + '-' + day;
     wx.request({
       url: 'https://a1bum.top/WXMiniProgram/info/query?key=' + keyword + '&today=' + today + '&p=' + page,
       success: function(res) {
-        const cries = res.data.cri;
+        const cries = res.data.cri.list;
         wx.hideLoading();
         vm.setData({
           keyword: keyword,
           list: vm.data.list.concat(cries),
+          pages: res.data.cri.pages,
         });
       },
-      fail:function(res){
+      fail: function(res) {
         console.log('请求失败' + res)
       }
     });
@@ -122,6 +118,9 @@ Page({
   },
   // 触底事件
   onReachBottom: function() {
-    this.search(this.data.keyword, this.data.page + 1);
+    if (this.data.page < this.data.pages) {
+      this.search(this.data.keyword, this.data.page + 1);
+      this.data.page += 1;
+    }
   },
 })

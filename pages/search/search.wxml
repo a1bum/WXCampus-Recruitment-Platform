@@ -14,7 +14,7 @@
     <image src="/images/delete.png" bindtap="clearHistory" />
   </view>
   <view class="search-history-detail">
-    <view class="history-detail" wx:for="{{history}}" wx:key="{{item}}" bindtap="historySearch" data-index="{{index}}">
+    <view class="history-detail" wx:for="{{history}}" wx:key="{{item.uuid}}" bindtap="historySearch" data-index="{{index}}">
       <text class="detail" data-text="{{item}}">{{item}}</text>
     </view>
   </view>
@@ -22,8 +22,8 @@
 <!-- 搜索结果显示区域 -->
 <view class="page__bd">
   <view class="kind-list">
-    <block wx:for="{{list}}" wx:key="id">
-      <navigator url='/pages/detail/detail?uuid={{item.uuid}}' class="kind-list__item item_box">
+    <block wx:for="{{list}}" wx:key="{{id}}">
+      <navigator url='/pages/detail/detail?cri_id={{item.id}}' class="kind-list__item item_box">
         <view class="weui-flex kind-list__item-hd item_left" bindtap="viewDetails">
           <image wx:if="{{item.logo_url}}" class="circle" src="{{item.logo_url}}"></image>
           <image wx:else="{{item.logo_url == ''}}" class='circle' src='/images/default.png'></image>

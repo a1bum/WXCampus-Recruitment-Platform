@@ -1,74 +1,72 @@
 // pages/detail/detaill.js
+var app = getApp();
 Page({
   // 请求接口函数
-  visitInterface: function(uuid){
+  visitInterface: function(cri_id) {
     let vm = this;
     wx.request({
-      url: 'https://a1bum.top/wx/info/detail?criId=' + criId,
-      success: function (res) {
-        if(res.data.msg){
-          // 错误请求处理
-          wx.showToast({
-            title: '获取链接失败',
-            icon: 'none',
-          });
-        }else{
-          vm.setData({
-            criId: uuid,
-            detail: res.data.data,
-            isCollect: '/images/alarm.png'
-          });
-        }
+      url: 'https://a1bum.top/WXMiniProgram/info/detail?id=' + cri_id,
+      success: function(res) {
+        vm.setData({
+          cri: res.data.cri == null ? '' : res.data.cri,
+          isCollect: res.data.cri == null ? '' : submit
+        });
       },
-      fail:function(){
+      fail: function() {
         wx.showNavigationBarLoading();
       },
-      complete: function(){
+      complete: function() {
         wx.hideNavigationBarLoading();
         wx.stopPullDownRefresh();
       }
     });
   },
   // 生命周期函数--监听页面加载
-  onLoad: function (options) {
-    let uuid = options.uuid;
-    let vm = this;
-    this.visitInterface(uuid);
+  onLoad: function(options) {
+    let id = options.cri_id;
+    this.visitInterface(id);
   },
   // 下拉窗口函数
-  onPullDownRefresh:function(){
+  onPullDownRefresh: function() {
     var vm = this;
-    var uuid = this.data.detail.uuid;
-    this.visitInterface(uuid);
+    var uuid = this.data.detail.cri.id;
+    this.visitInterface(id);
   },
   // 收藏事件
-  collect:function(e){
+  collect: function(e) {
     let vm = this;
     var isCollect = vm.data.isCollect;
-    if (isCollect == '/images/alarm.png'){
+    if (isCollect == '') {
       wx.request({
-        url: '/WxMiniProgram/collect/add',
+        url: 'https://a1bum.top/WXMiniProgram/wxuser/collect',
         data: {
-          criId: vm.data.criId,
-          company_name: vm.data.detail.company_name,
-          hold_date: vm.data.detail.begin_datetime.split(' ')[0],
-          start_time: vm.data.detail.begin_datetime.split('')[1]
+          openid: app.globalData.openid,
+          formId: e.detail.formId,
+          company_name: vm.data.cri.company_name,
+          university_name: vm.data.cri.university_name,
+          hold_date: vm.data.cri.hold_date,
+          start_time: vm.data.cri.start_time,
+          locations: vm.data.cri.locations
         },
-        success:function(res){
+        header: {
+          'content-type': 'application/json'
+        },
+        success: function(res) {
+          let title = res.data.code == 0 ? "已收藏" : "收藏失败";
           wx.showToast({
-            title: '已收藏',
-          })
+            title: title
+          });
+          vm.setData({
+            isCollect: 'submit'
+          });
         },
-        fail:function(res){
+        fail: function(res) {
           console.log("失败")
         }
       })
+    } else {
       vm.setData({
-        isCollect: '/images/alarm-selected.png'
-      })
-    }else{
-      vm.setData({
-        isCollect: '/images/alarm.png'
+        isCollect: ''
       })
     }
   }

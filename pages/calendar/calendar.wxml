@@ -4,7 +4,6 @@
     <view class="selected_month">
         <picker mode="date" value="{{date}}" fields="month" start="2018-01-01" end="2019-09-01" bindchange="bindDateChange">
           <view class="text_center" >{{curYear+'年'+curMonth+'月'}}</view>
-          <image class="downIcon" mode='aspectfill' src="/images/down_arrow.png"></image>
         </picker>
     </view>
     <!-- 日历部分 -->
