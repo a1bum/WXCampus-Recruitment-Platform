@@ -27,6 +27,11 @@ WXCampisRecuitmentPlatform/
 
 ## 更新日志
 
+### 2019-05-04
+
+1. 修复“上拉加载数据重复”问题；
+2. 实现“微信小程序端校招信息提醒功能”（[微信小程序-模板消息](https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/template-message.html)）。
+
 ### 2019-04-15
 
 ​	删除所有冗余无关页面，使代码结构更加清晰，保证代码质量。
