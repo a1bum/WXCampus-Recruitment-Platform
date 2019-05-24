@@ -1,1 +1,2 @@
-/* pages/collection/collection.wxss */
+@import '/utils/xss/weui.wxss';
+@import '/utils/xss/common.wxss';

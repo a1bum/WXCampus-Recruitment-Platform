@@ -5,7 +5,6 @@
     "pages/account/account",
     "pages/search/search",
     "pages/detail/detail",
-    "pages/feedback/feedback",
     "pages/github/github",
     "pages/collection/collection"
   ],

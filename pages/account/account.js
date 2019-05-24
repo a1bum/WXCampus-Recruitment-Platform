@@ -50,16 +50,11 @@ Page({
       url: '/pages/github/github',
     })
   },
-  // 跳转到 发布信息页面
-  toPublish:function(e){
-    wx.navigateTo({
-      url: '/pages/publish/publish',
-    })
-  },
   // 跳转到收藏页面
   toCollection:function(e){
     wx.navigateTo({
       url: '/pages/collection/collection',
     })
-  }
+  },
+  //禁用下拉刷新
 })

@@ -85,6 +85,10 @@ Page({
       selectedDate: selectedDate,
       selectedWeek: vm.data.weekArr[e.currentTarget.dataset.date.week]
     });
+    // 先清空
+    vm.setData({
+      list: [],
+    })
     // 根据被选中的日期调用接口动态改变日历下面的推荐信息
     vm.visitInterface(selectedDate);
   },

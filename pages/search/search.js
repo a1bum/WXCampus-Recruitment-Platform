@@ -92,10 +92,10 @@ Page({
       title: '请稍等',
     });
     // 访问接口
-    let today = new Date().toLocaleDateString().replace(/[/]/g, '-');
-    let year = today.split('-')[0];
-    let month = today.split('-')[1];
-    let day = today.split('-')[2];
+    let today = new Date();
+    let year = today.getFullYear() + ''; //number类型转换为string，否则提示没有length
+    let month = today.getMonth() + 1 + '';
+    let day = today.getDate() + '';
     month = month.length == 2 ? month : '0' + month;
     day = day.length == 2 ? day : '0' + day;
     today = year + '-' + month + '-' + day;

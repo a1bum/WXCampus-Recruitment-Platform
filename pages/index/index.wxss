@@ -1,11 +1,6 @@
 @import '/utils/xss/weui.wxss';
 @import '/utils/xss/common.wxss';
 
-.collect{
-  width: 30rpx;
-  height: 30rpx;
-}
-
 .searchInput{
   height: 60rpx;
 }

@@ -1,6 +1,6 @@
 <view class="kind-list">
   <view class="kind-list__item">
-    <view class="weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}} detail_head">
+    <view class="weui-flex kind-list__item-hd  detail_head">
       <image wx:if="{{cri.logo_url}}" class="circle" src="{{cri.logo_url}}"></image>
       <image wx:else="{{cri.logo_url == ''}}" class='circle' src='/images/default_detail.png'></image>
       <view>
@@ -29,7 +29,9 @@
 <view class="bottom">
   <form report-submit='true' bindsubmit='collect'>
     <view class='collect'>
-      <button form-type="{{isCollect}}" >收藏</button>
+      <button form-type="{{isCollect}}">
+        <image class='collectIcon' hidden='{{isCollect==""}}' src='/images/collect_unselected.png'></image>
+        <image class='collectIcon' hidden='{{isCollect=="submit"}}' src='/images/collect.png'></image>收藏</button>
     </view>
   </form>
 </view>

@@ -14,7 +14,6 @@ Page({
   // 访问接口获取数据
   visitInterface: function() {
     let vm = this;
-    let page = Math.ceil(Math.random() * 10);
     wx.request({
       url: 'https://a1bum.top/WXMiniProgram/info/page',
       header: { 'content-type': 'application/json' },

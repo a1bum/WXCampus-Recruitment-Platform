@@ -6,13 +6,10 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
-  <view class="">
-    <button class="publish_info weui-cell__bd" bindtap='toCollection'>我的收藏</button>
-  </view>
-  <view class="">
-    <button class="official_feedback weui-cell__bd" open-type='feedback'>小程序反馈</button>
-  </view>
-  <view class="">
-    <button class="github_feedback weui-cell__bd" bindtap='toGithubIssue'>平台反馈</button>
-  </view>
+  <button class="btn weui-cell__bd" bindtap='toCollection'>我的收藏</button>
+  <view class='line'></view>
+  <button class="btn weui-cell__bd" open-type='feedback'>小程序反馈</button>
+  <view class='line'></view>
+  <button class="btn weui-cell__bd" bindtap='toGithubIssue'>平台反馈</button>
+  <view class='line'></view>
 </view>
